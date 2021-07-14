@@ -10,6 +10,10 @@
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
+  "files": [
+    "dist",
+    "CHANGELOG.md"
+  ],
   "keywords": [
     "svelte",
     "tiptap",

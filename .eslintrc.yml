@@ -1,0 +1,32 @@
+extends:
+  - pegasus
+
+plugins:
+  - svelte3
+  - '@typescript-eslint'
+
+parser: '@typescript-eslint/parser'
+
+overrides:
+  - files:
+      - '*.svelte'
+    processor: 'svelte3/svelte3'
+  - files:
+      - '**/*.ts'
+    extends:
+      - plugin:@typescript-eslint/recommended
+  - files:
+      - 'tests/*'
+    env:
+      jest: true
+
+rules:
+  no-warning-comments: off
+  no-duplicate-imports: off
+
+settings:
+  svelte3/typescript: true
+
+env:
+  node: true
+  browser: true

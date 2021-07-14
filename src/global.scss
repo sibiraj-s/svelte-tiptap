@@ -1,0 +1,65 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+}
+
+.ProseMirror {
+  border: 2px solid #005fcc;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.svelte-component {
+  background: #faf594;
+  border: 3px solid #0d0d0d;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+
+  &.selected {
+    border-color: #5fb195;
+  }
+
+  .label {
+    margin-left: 1rem;
+    background-color: #0d0d0d;
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    position: relative;
+    top: -2px;
+  }
+
+  .content {
+    margin: 1rem;
+
+    &.editable {
+      margin: 1rem;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 2px dashed #0d0d0d20;
+    }
+  }
+}

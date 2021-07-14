@@ -21,7 +21,7 @@ npm i svelte-tiptap
 yarn add svelte-tiptap
 ```
 
-**Note**: This package just provides the bindings for angular. For configuring/customizing the editor, refer [tiptap's official documentation](https://www.tiptap.dev/).
+**Note**: This package just provides components for svelte. For configuring/customizing the editor, refer [tiptap's official documentation](https://www.tiptap.dev/).
 
 For any issues with the editor. You may need to open the issue on [tiptap's repository](https://github.com/ueberdosis/tiptap/issues)
 
@@ -101,12 +101,11 @@ Refer: https://www.tiptap.dev/api/extensions/bubble-menu
 
 ## SvelteNodeViewRenderer
 
-This enables rendering Angular Components as NodeViews.
+This enables rendering Svelte Components as NodeViews.
 
 ### Create a Node Extension
 
 ```ts
-import { Injector } from '@angular/core';
 import { Node, mergeAttributes } from '@tiptap/core';
 import { SvelteNodeViewRenderer } from 'svelte-tiptap';
 

@@ -28,7 +28,8 @@
     "serve": "snowpack dev",
     "validate": "svelte-check",
     "test": "npm run validate && jest",
-    "prepare": "is-ci || husky install"
+    "prepare": "is-ci || husky install",
+    "prepublishOnly": "is-ci || npm run build"
   },
   "peerDependencies": {
     "@tiptap/core": "^2.0.0-beta.86",

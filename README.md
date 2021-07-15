@@ -29,10 +29,10 @@ For any issues with the editor. You may need to open the issue on [tiptap's repo
 
 A Simple editor.
 
-```html
+```svelte
 <script lang="typescript">
   import { onMount, onDestroy } from 'svelte';
-  import {  Editor, EditorContent } from 'svelte-tiptap';
+  import { Editor, EditorContent } from 'svelte-tiptap';
 
   let editor: Editor;
 
@@ -65,10 +65,10 @@ This will make a contextual menu appear near a selection of text.
 
 The markup and styling are totally up to you.
 
-```html
+```svelte
 <script lang="typescript">
   import { onMount, onDestroy } from 'svelte';
-  import {  EditorContent, FloatingMenu } from 'svelte-tiptap';
+  import { EditorContent, FloatingMenu } from 'svelte-tiptap';
 
   // ...create the editor instance on mount
 </script>
@@ -85,10 +85,10 @@ This will make a contextual menu appear near a selection of text. Use it to let 
 
 The markup and styling are totally up to you.
 
-```html
+```svelte
 <script lang="typescript">
   import { onMount, onDestroy } from 'svelte';
-  import {  EditorContent, BubbleMenu } from 'svelte-tiptap';
+  import { EditorContent, BubbleMenu } from 'svelte-tiptap';
 
   // ...create the editor instance on mount
 </script>
@@ -142,7 +142,7 @@ export const SvelteCounterExtension = Node.create({
 
 ### Create a Component
 
-```html
+```svelte
 <script lang="ts">
   import type { NodeViewProps } from '@tiptap/core';
   import type { Node as ProseMirrorNode } from 'prosemirror-model';
@@ -172,75 +172,71 @@ export const SvelteCounterExtension = Node.create({
 
 ### Use the extension
 
-```html
-<script lang="typescript">
-  import { onMount, onDestroy } from 'svelte';
-  import {  Editor, EditorContent } from 'svelte-tiptap';
-  import StarterKit from '@tiptap/starter-kit';
+```ts
+import { onMount, onDestroy } from 'svelte';
+import { Editor, EditorContent } from 'svelte-tiptap';
+import StarterKit from '@tiptap/starter-kit';
 
-  import { SvelteCounterExtension } from './SvelteExtension';
+import { SvelteCounterExtension } from './SvelteExtension';
 
-  let editor: Editor;
+let editor: Editor;
 
-  onMount(() => {
-    editor = new Editor({
-      extensions: [StarterKit, SvelteCounterExtension],
-      content: `
+onMount(() => {
+  editor = new Editor({
+    extensions: [StarterKit, SvelteCounterExtension],
+    content: `
         <p>This is still the text editor you’re used to, but enriched with node views.</p>
         <svelte-counter-component count="0"></svelte-counter-component>
         <p>Did you see that? That’s a Svelte component. We are really living in the future.</p>
       `,
-      onTransaction: () => {
-        editor = editor;
-      },
-    });
+    onTransaction: () => {
+      editor = editor;
+    },
   });
+});
 
-  onDestroy(() => {
-    editor.destroy();
-  });
-</script>
+onDestroy(() => {
+  editor.destroy();
+});
 ```
 
 ### Access/Update Attributes
 
 Refer https://www.tiptap.dev/guide/node-views/react/#all-available-props for the list of all available attributes. You can access them like
 
-```html
-<script lang="ts">
-  import type { NodeViewProps } from '@tiptap/core';
-  import type { Node as ProseMirrorNode } from 'prosemirror-model';
+```ts
+import type { NodeViewProps } from '@tiptap/core';
+import type { Node as ProseMirrorNode } from 'prosemirror-model';
 
-  export let node: ProseMirrorNode;
-  export let updateAttributes: NodeViewProps['updateAttributes'];
-  // ...define other props as needed.
+export let node: ProseMirrorNode;
+export let updateAttributes: NodeViewProps['updateAttributes'];
+// ...define other props as needed.
 
-  // update attributes
-  const handleClick = () => {
-    updateAttributes({ count: node.attrs.count + 1 });
-  };
-</script>
+// update attributes
+const handleClick = () => {
+  updateAttributes({ count: node.attrs.count + 1 });
+};
 ```
 
 ### Dragging
 
 To make your node views draggable, set `draggable: true` in the extension and add `draggable` action to the DOM element inside the component that should function as the drag handle.
 
-```html
+```svelte
 <script lang="ts">
   import { NodeViewWrapper, draggable } from 'prosemirror-model';
 </script>
 
-<NodeViewWrapper action="{draggable}" />
+<NodeViewWrapper action={draggable} />
 <!-- OR -->
-<div use:draggable></div>
+<div use:draggable />
 ```
 
 ### Adding a content editable
 
 There is another action called `editable` which helps you adding editable content to your node view. Here is an example.
 
-```html
+```svelte
 <script lang="ts">
   import { NodeViewWrapper, editable } from '../lib';
 </script>

@@ -66,6 +66,7 @@
     "jest": "^27.0.6",
     "lint-staged": "^11.0.1",
     "prettier": "^2.3.2",
+    "prettier-plugin-svelte": "^2.3.1",
     "rollup-plugin-svelte": "^7.1.0",
     "sass": "^1.35.2",
     "snowpack": "^3.8.2",

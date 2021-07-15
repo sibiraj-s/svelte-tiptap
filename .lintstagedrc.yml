@@ -1,2 +1,2 @@
 '*.{js,ts,svelte}': eslint --fix
-'*.{md,yml}': prettier --write
+'*.{md,yml,json,html}': prettier --write

@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import type { Editor } from './Editor';
 
   import {

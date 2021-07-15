@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { getContext, onMount, tick } from 'svelte';
   import { doNothingAction } from './actions';
 

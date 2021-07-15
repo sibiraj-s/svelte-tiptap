@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { BubbleMenuPlugin, BubbleMenuPluginKey } from '@tiptap/extension-bubble-menu';
   import type { BubbleMenuPluginProps } from '@tiptap/extension-bubble-menu';
   import { onDestroy, onMount } from 'svelte';

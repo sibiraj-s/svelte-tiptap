@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { Editor, EditorContent, FloatingMenu } from '../../lib';
   import StarterKit from '@tiptap/starter-kit';
 

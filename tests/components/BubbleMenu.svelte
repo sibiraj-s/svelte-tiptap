@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { Editor, BubbleMenu, EditorContent } from '../../lib';
   import StarterKit from '@tiptap/starter-kit';
 

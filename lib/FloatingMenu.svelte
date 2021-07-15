@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
   import { FloatingMenuPlugin, FloatingMenuPluginKey } from '@tiptap/extension-floating-menu';
   import type { FloatingMenuPluginProps } from '@tiptap/extension-floating-menu';
   import { onDestroy, onMount } from 'svelte';

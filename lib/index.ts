@@ -6,5 +6,5 @@ export { default as BubbleMenu } from './BubbleMenu.svelte';
 export { default as FloatingMenu } from './FloatingMenu.svelte';
 
 export { editable, draggable } from './actions';
-export { SvelteNodeViewRenderer } from './NodeviewRenderer';
-export { SvelteRenderer } from './SvelteRenderer';
+export { default as SvelteNodeViewRenderer } from './NodeviewRenderer';
+export { default as SvelteRenderer } from './SvelteRenderer';

@@ -5,7 +5,7 @@ import type { Decoration, NodeView as ProseMirrorNodeView } from 'prosemirror-vi
 import type { Node as ProseMirrorNode } from 'prosemirror-model';
 import type { SvelteComponent } from 'svelte';
 
-import { SvelteRenderer } from './SvelteRenderer';
+import SvelteRenderer from './SvelteRenderer';
 
 interface SvelteNodeViewRendererOptions {
   stopEvent: ((event: Event) => boolean) | null;
@@ -122,7 +122,7 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor> {
   }
 }
 
-export const SvelteNodeViewRenderer = (
+const SvelteNodeViewRenderer = (
   component: SvelteComponentRaw,
   options?: Partial<SvelteNodeViewRendererOptions>,
 ): NodeViewRenderer => {
@@ -130,3 +130,5 @@ export const SvelteNodeViewRenderer = (
     return new SvelteNodeView(component, props, options) as ProseMirrorNodeView;
   };
 };
+
+export default SvelteNodeViewRenderer;

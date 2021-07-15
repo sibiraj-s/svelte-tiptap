@@ -5,7 +5,7 @@ interface RendererOptions {
   element: HTMLElement
 }
 
-export class SvelteRenderer {
+class SvelteRenderer {
   component: SvelteComponent
 
   dom: HTMLElement
@@ -25,3 +25,5 @@ export class SvelteRenderer {
     this.component.$destroy();
   }
 }
+
+export default SvelteRenderer;

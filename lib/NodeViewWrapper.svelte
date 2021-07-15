@@ -15,11 +15,11 @@
 <!-- TODO: prefer dynamic componentns -->
 <!-- Issue: https://github.com/sveltejs/svelte/issues/2324 -->
 {#if isInline}
-  <span {...$$restProps} bind:this={element} data-node-view-wrapper="" on:dragstart={onDragStart} use:action>
+  <span bind:this={element} data-node-view-wrapper="" on:dragstart={onDragStart} use:action {...$$restProps}>
     <slot />
   </span>
 {:else}
-  <div {...$$restProps} bind:this={element} data-node-view-wrapper="" on:dragstart={onDragStart} use:action>
+  <div bind:this={element} data-node-view-wrapper="" on:dragstart={onDragStart} use:action {...$$restProps}>
     <slot />
   </div>
 {/if}

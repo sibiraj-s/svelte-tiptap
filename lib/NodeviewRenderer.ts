@@ -12,7 +12,9 @@ interface SvelteNodeViewRendererOptions {
   update: ((node: ProseMirrorNode, decorations: Decoration[]) => boolean) | null;
 }
 
-class SvelteNodeView extends NodeView<typeof SvelteComponent, Editor> {
+type SvelteComponentRaw = typeof SvelteComponent
+
+class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor> {
   renderer!: SvelteRenderer;
 
   contentDOMElement!: HTMLElement | null;
@@ -121,7 +123,7 @@ class SvelteNodeView extends NodeView<typeof SvelteComponent, Editor> {
 }
 
 export const SvelteNodeViewRenderer = (
-  component: typeof SvelteComponent,
+  component: SvelteComponentRaw,
   options?: Partial<SvelteNodeViewRendererOptions>,
 ): NodeViewRenderer => {
   return (props) => {

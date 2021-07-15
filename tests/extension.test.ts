@@ -104,5 +104,5 @@ it('should render the editable component', async () => {
 
   // TODO: Test editor component update
   // unable to mimic typing event with testing library
-  // expect(editor.getHTML()).toContain('<svelte-counter-component count="2"></svelte-counter-component>')
+  // expect(editor.getHTML()).toContain('<svelte-editable-component>This text is updated</svelte-editable-component>')
 });

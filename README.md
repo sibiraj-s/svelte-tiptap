@@ -30,7 +30,7 @@ For any issues with the editor. You may need to open the issue on [tiptap's repo
 A Simple editor.
 
 ```svelte
-<script lang="typescript">
+<script lang="ts">
   import { onMount, onDestroy } from 'svelte';
   import { Editor, EditorContent } from 'svelte-tiptap';
 
@@ -66,7 +66,7 @@ This will make a contextual menu appear near a selection of text.
 The markup and styling are totally up to you.
 
 ```svelte
-<script lang="typescript">
+<script lang="ts">
   import { onMount, onDestroy } from 'svelte';
   import { EditorContent, FloatingMenu } from 'svelte-tiptap';
 
@@ -86,7 +86,7 @@ This will make a contextual menu appear near a selection of text. Use it to let 
 The markup and styling are totally up to you.
 
 ```svelte
-<script lang="typescript">
+<script lang="ts">
   import { onMount, onDestroy } from 'svelte';
   import { EditorContent, BubbleMenu } from 'svelte-tiptap';
 

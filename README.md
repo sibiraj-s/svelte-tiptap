@@ -253,6 +253,4 @@ Refer: https://www.tiptap.dev/guide/node-views/react/#adding-a-content-editable
 
 ## Contributing
 
-<!-- prettier-ignore-start -->
-All types of contributions are welcome. See [CONTRIBUTING.md][./.github/CONTRIBUTING.md] to get started.
-<!-- prettier-ignore-end -->
+All types of contributions are welcome. See [CONTRIBUTING.md][./.github/contributing.md] to get started.

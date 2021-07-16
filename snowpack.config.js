@@ -2,7 +2,7 @@
 export default {
   mount: {
     public: '/',
-    src: '/build',
+    demo: '/build',
     lib: '/lib',
   },
   plugins: [

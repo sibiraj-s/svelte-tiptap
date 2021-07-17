@@ -50,7 +50,7 @@
     "@tiptap/starter-kit": "^2.0.0-beta.82",
     "@tsconfig/svelte": "^2.0.1",
     "@types/jest": "^26.0.24",
-    "@types/node": "^16.3.2",
+    "@types/node": "^16.3.3",
     "@types/prosemirror-model": "^1.13.1",
     "@types/prosemirror-view": "^1.17.2",
     "@typescript-eslint/eslint-plugin": "^4.28.3",

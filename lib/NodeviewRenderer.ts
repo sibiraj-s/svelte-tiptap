@@ -59,10 +59,6 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor> {
     this.renderer = new SvelteRenderer(svelteComponent, {
       element: target,
     });
-
-    if (this.options.stopEvent) {
-      this.stopEvent = this.options.stopEvent;
-    }
   }
 
   get dom() {

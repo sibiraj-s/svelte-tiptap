@@ -13,6 +13,12 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v0.2.0 (2021-07-17)
+
+### Features
+
+- add `createEditor` method ([f590d5c](https://github.com/sibiraj-s/svelte-tiptap/commit/f590d5c))
+
 ## v0.1.1 (2021-07-14)
 
 #### Documentation

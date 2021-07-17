@@ -1,7 +1,7 @@
 {
   "name": "svelte-tiptap",
   "description": "Svelte components for tiptap v2",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "sibiraj-s",
   "license": "MIT",
   "repository": "https://github.com/sibiraj-s/svelte-tiptap.git",

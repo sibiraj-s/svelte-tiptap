@@ -1,14 +1,12 @@
 <script lang="ts">
 import type { NodeViewProps } from '@tiptap/core';
-import type { Node as ProseMirrorNode } from 'prosemirror-model';
 import cx from 'classnames';
 
 import { NodeViewWrapper } from '../../lib';
 
-// export let editor: Editor = null;
-export let node: ProseMirrorNode;
-export let selected = false;
+export let node: NodeViewProps['node'];
 export let updateAttributes: NodeViewProps['updateAttributes'];
+export let selected: NodeViewProps['selected'] = false;
 
 const handleClick = () => {
   updateAttributes({ count: node.attrs.count + 1 });

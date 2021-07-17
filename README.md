@@ -31,26 +31,19 @@ A Simple editor.
 
 ```svelte
 <script lang="ts">
-  import { onMount, onDestroy } from 'svelte';
-  import { Editor, EditorContent } from 'svelte-tiptap';
+  import { onMount, onDestroy, Readable } from 'svelte';
+  import { createEditor, EditorContent } from 'svelte-tiptap';
 
-  let editor: Editor;
+  let editor: Readable<Editor>;
 
   onMount(() => {
-    editor = new Editor({
+    editor = createEditor({
       content: `Hello world!`,
-      onTransaction: () => {
-        editor = editor;
-      },
     });
-  });
-
-  onDestroy(() => {
-    editor.destroy();
   });
 </script>
 
-<EditorContent {editor} />
+<EditorContent editor={$editor} />
 ```
 
 Refer https://www.tiptap.dev/api/commands/ for available commands
@@ -67,14 +60,13 @@ The markup and styling are totally up to you.
 
 ```svelte
 <script lang="ts">
-  import { onMount, onDestroy } from 'svelte';
   import { EditorContent, FloatingMenu } from 'svelte-tiptap';
 
   // ...create the editor instance on mount
 </script>
 
-<EditorContent {editor} />
-<FloatingMenu {editor} />
+<EditorContent editor={$editor} />
+<FloatingMenu editor={$editor} />
 ```
 
 Refer: https://www.tiptap.dev/api/extensions/floating-menu
@@ -87,14 +79,13 @@ The markup and styling are totally up to you.
 
 ```svelte
 <script lang="ts">
-  import { onMount, onDestroy } from 'svelte';
   import { EditorContent, BubbleMenu } from 'svelte-tiptap';
 
   // ...create the editor instance on mount
 </script>
 
-<EditorContent {editor} />
-<BubbleMenu {editor} />
+<EditorContent editor={$editor} />
+<BubbleMenu editor={$editor} />
 ```
 
 Refer: https://www.tiptap.dev/api/extensions/bubble-menu
@@ -145,14 +136,13 @@ export const SvelteCounterExtension = Node.create({
 ```svelte
 <script lang="ts">
   import type { NodeViewProps } from '@tiptap/core';
-  import type { Node as ProseMirrorNode } from 'prosemirror-model';
   import cx from 'classnames';
 
   import { NodeViewWrapper } from '../lib';
 
-  export let node: ProseMirrorNode;
-  export let selected = false;
+  export let node: NodeViewProps['node'];
   export let updateAttributes: NodeViewProps['updateAttributes'];
+  export let selected: NodeViewProps['selected'] = false;
 
   const handleClick = () => {
     updateAttributes({ count: node.attrs.count + 1 });
@@ -173,30 +163,23 @@ export const SvelteCounterExtension = Node.create({
 ### Use the extension
 
 ```ts
-import { onMount, onDestroy } from 'svelte';
+import { onMount, onDestroy, Readable } from 'svelte';
 import { Editor, EditorContent } from 'svelte-tiptap';
 import StarterKit from '@tiptap/starter-kit';
 
 import { SvelteCounterExtension } from './SvelteExtension';
 
-let editor: Editor;
+let editor: Readable<Editor>;
 
 onMount(() => {
-  editor = new Editor({
+  editor = createEditor({
     extensions: [StarterKit, SvelteCounterExtension],
     content: `
         <p>This is still the text editor you’re used to, but enriched with node views.</p>
         <svelte-counter-component count="0"></svelte-counter-component>
         <p>Did you see that? That’s a Svelte component. We are really living in the future.</p>
       `,
-    onTransaction: () => {
-      editor = editor;
-    },
   });
-});
-
-onDestroy(() => {
-  editor.destroy();
 });
 ```
 
@@ -206,9 +189,8 @@ Refer https://www.tiptap.dev/guide/node-views/react/#all-available-props for the
 
 ```ts
 import type { NodeViewProps } from '@tiptap/core';
-import type { Node as ProseMirrorNode } from 'prosemirror-model';
 
-export let node: ProseMirrorNode;
+export let node: NodeViewProps['node'];
 export let updateAttributes: NodeViewProps['updateAttributes'];
 // ...define other props as needed.
 
@@ -224,7 +206,7 @@ To make your node views draggable, set `draggable: true` in the extension and ad
 
 ```svelte
 <script lang="ts">
-  import { NodeViewWrapper, draggable } from 'prosemirror-model';
+  import { NodeViewWrapper, draggable } from 'svelte-tiptap';
 </script>
 
 <NodeViewWrapper action={draggable} />

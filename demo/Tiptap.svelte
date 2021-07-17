@@ -1,16 +1,17 @@
 <script lang="ts">
-  import { onMount, onDestroy } from 'svelte';
+  import { onMount } from 'svelte';
   import {
-    Editor, EditorContent, FloatingMenu, BubbleMenu,
+    Editor, EditorContent, FloatingMenu, BubbleMenu, createEditor,
 } from '../lib';
   import StarterKit from '@tiptap/starter-kit';
+  import type { Readable } from 'svelte/store';
 
   import { SvelteCounterExtension, SvelteEditableExtension } from './SvelteExtension';
 
-  let editor: Editor;
+  let editor: Readable<Editor>;
 
   onMount(() => {
-    editor = new Editor({
+    editor = createEditor({
       extensions: [StarterKit, SvelteCounterExtension, SvelteEditableExtension],
       content: `
         <p>This is still the text editor you’re used to, but enriched with node views.</p>
@@ -19,35 +20,28 @@
         <svelte-editable-component>This is editable</svelte-editable-component>
         <p>Did you see that? That’s a Svelte component. We are really living in the future.</p>
       `,
-      onTransaction: () => {
-        editor = editor;
-      },
     });
-  });
-
-  onDestroy(() => {
-    editor.destroy();
   });
 
   const toggleHeading = (level: 1 | 2) => {
     return () => {
-      editor.chain().focus().toggleHeading({ level }).run();
+      $editor.chain().focus().toggleHeading({ level }).run();
     };
   };
 
   const toggleBold = () => {
-    editor.chain().focus().toggleBold().run();
+    $editor.chain().focus().toggleBold().run();
   };
 
   const toggleItalic = () => {
-    editor.chain().focus().toggleItalic().run();
+    $editor.chain().focus().toggleItalic().run();
   };
 
   const setParagraph = () => {
-    editor.chain().focus().setParagraph().run();
+    $editor.chain().focus().setParagraph().run();
   };
 
-  $: isActive = (name: string, attrs = {}) => editor.isActive(name, attrs);
+  $: isActive = (name: string, attrs = {}) => $editor.isActive(name, attrs);
 </script>
 
 {#if editor}
@@ -61,20 +55,20 @@
 {/if}
 
 {#if editor}
-  <FloatingMenu {editor}>
+  <FloatingMenu editor={$editor}>
     <button on:click={toggleBold} class:active={isActive('bold')}> B </button>
     <button on:click={toggleItalic} class:active={isActive('italic')}> I </button>
   </FloatingMenu>
 {/if}
 
 {#if editor}
-  <BubbleMenu {editor}>
+  <BubbleMenu editor={$editor}>
     <button on:click={toggleBold} class:active={isActive('bold')}> B </button>
     <button on:click={toggleItalic} class:active={isActive('italic')}> I </button>
   </BubbleMenu>
 {/if}
 
-<EditorContent {editor} />
+<EditorContent editor={$editor} />
 
 <style>
   .menu {

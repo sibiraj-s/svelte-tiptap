@@ -25,7 +25,7 @@
     "prebuiild": "npm run validate",
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "serve": "snowpack dev",
+    "demo": "snowpack dev",
     "validate": "svelte-check",
     "test": "npm run validate && jest",
     "prepare": "is-ci || husky install",

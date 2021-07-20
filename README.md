@@ -137,8 +137,7 @@ export const SvelteCounterExtension = Node.create({
 <script lang="ts">
   import type { NodeViewProps } from '@tiptap/core';
   import cx from 'classnames';
-
-  import { NodeViewWrapper } from '../lib';
+  import { NodeViewWrapper } from 'svelte-tiptap';
 
   export let node: NodeViewProps['node'];
   export let updateAttributes: NodeViewProps['updateAttributes'];
@@ -220,7 +219,7 @@ There is another action called `editable` which helps you adding editable conten
 
 ```svelte
 <script lang="ts">
-  import { NodeViewWrapper, editable } from '../lib';
+  import { NodeViewWrapper, editable } from 'svelte-tiptap';
 </script>
 
 <NodeViewWrapper class="svelte-component">

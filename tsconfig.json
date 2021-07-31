@@ -9,9 +9,9 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": true,
-    "noImplicitOverride": true
-    // "exactOptionalPropertyTypes": true TODO: Enable after TS 4.4
+    "noImplicitAny": true
+    // "noImplicitOverride": true // TODO: Enaable later, errors with svelte
+    // "exactOptionalPropertyTypes": true // TODO: Enable after TS 4.4
   },
   "include": ["lib/**/*"],
   "exclude": ["node_modules/*", "dist/*"]

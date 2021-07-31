@@ -13,9 +13,15 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v0.3.0 (2021-07-31)
+
+#### Features
+
+- update tiptap dependencies ([f7c3143](https://github.com/sibiraj-s/svelte-tiptap/commit/f7c3143))
+
 ## v0.2.0 (2021-07-17)
 
-### Features
+#### Features
 
 - add `createEditor` method ([f590d5c](https://github.com/sibiraj-s/svelte-tiptap/commit/f590d5c))
 

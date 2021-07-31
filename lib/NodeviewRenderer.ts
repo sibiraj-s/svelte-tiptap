@@ -1,5 +1,6 @@
 import {
   NodeView, NodeViewRenderer, Editor, NodeViewProps,
+  NodeViewRendererOptions,
 } from '@tiptap/core';
 import type { Decoration } from 'prosemirror-view';
 import type { Node as ProseMirrorNode } from 'prosemirror-model';
@@ -7,14 +8,13 @@ import type { SvelteComponent } from 'svelte';
 
 import SvelteRenderer from './SvelteRenderer';
 
-interface SvelteNodeViewRendererOptions {
-  stopEvent: ((event: Event) => boolean) | null;
+export interface SvelteNodeViewRendererOptions extends NodeViewRendererOptions {
   update: ((node: ProseMirrorNode, decorations: Decoration[]) => boolean) | null;
 }
 
 type SvelteComponentRaw = typeof SvelteComponent
 
-class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor> {
+class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeViewRendererOptions> {
   renderer!: SvelteRenderer;
 
   contentDOMElement!: HTMLElement | null;

@@ -1,4 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+node scripts/version-check.cjs
 npx --no-install lint-staged

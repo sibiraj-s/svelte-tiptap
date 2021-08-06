@@ -8,10 +8,6 @@
   "bugs": "https://github.com/sibiraj-s/svelte-tiptap/issues",
   "homepage": "https://github.com/sibiraj-s/svelte-tiptap#readme",
   "type": "module",
-  "files": [
-    "dist",
-    "CHANGELOG.md"
-  ],
   "keywords": [
     "svelte",
     "tiptap",

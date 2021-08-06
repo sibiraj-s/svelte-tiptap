@@ -13,6 +13,12 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v0.4.1 (2021-08-06)
+
+#### Bug Fixes
+
+- publish all build files to npm ([31002f8](https://github.com/sibiraj-s/svelte-tiptap/commit/31002f8))
+
 ## v0.4.0 (2021-08-06)
 
 #### Features

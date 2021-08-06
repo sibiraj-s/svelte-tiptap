@@ -1,7 +1,7 @@
 import { render, act } from '@testing-library/svelte';
 import StarterKit from '@tiptap/starter-kit';
 
-import { Editor, FloatingMenu } from '../lib';
+import { Editor, FloatingMenu } from '$lib';
 import FloatingMenuComponent from './components/FloatingMenu.svelte';
 
 it('should render the floating menu correctly', async () => {

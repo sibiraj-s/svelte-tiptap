@@ -18,7 +18,7 @@
       return;
     }
 
-    element.append(...editor.options.element.childNodes);
+    element.append(...Array.from(editor.options.element.childNodes));
     editor.setOptions({ element });
 
     editor.contentElement = element;
@@ -39,7 +39,7 @@
     }
 
     const newElement = document.createElement('div');
-    newElement.append(...editor.options.element.childNodes);
+    newElement.append(...Array.from(editor.options.element.childNodes));
 
     editor.setOptions({
       element: newElement,

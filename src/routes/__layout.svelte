@@ -1,11 +1,9 @@
 <script lang="ts">
-  import Tiptap from './Tiptap.svelte';
-  export let name: string;
+	import '../app.scss';
 </script>
 
 <main>
-  <h1>Hello {name}!</h1>
-  <Tiptap />
+	<slot />
 </main>
 
 <style>

@@ -2,7 +2,7 @@
   import type { NodeViewProps } from '@tiptap/core';
   import cx from 'classnames';
 
-  import { draggable, NodeViewWrapper } from '../lib';
+  import { draggable, NodeViewWrapper } from '$lib';
 
   export let node: NodeViewProps['node'];
   export let updateAttributes: NodeViewProps['updateAttributes'];

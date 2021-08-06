@@ -1,5 +1,5 @@
 import { Node, mergeAttributes } from '@tiptap/core';
-import { SvelteNodeViewRenderer } from '../lib';
+import { SvelteNodeViewRenderer } from '$lib';
 
 import CounterComponent from './Counter.svelte';
 import EditableComponent from './Editable.svelte';

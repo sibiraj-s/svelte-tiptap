@@ -20,19 +20,11 @@ git clone https://github.com/sibiraj-s/svelte-tiptap
 npm i
 ```
 
-- Run the following to build and watch the changes to the library
+- Run dev server
 
 ```bash
 npm run dev
 ```
-
-- Run the demo server to test the editor
-
-```bash
-npm run demo
-```
-
-This will run the demo server in port 7767.
 
 - Run the tests
 

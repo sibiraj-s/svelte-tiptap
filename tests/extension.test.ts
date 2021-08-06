@@ -2,7 +2,7 @@ import { render, act, fireEvent } from '@testing-library/svelte';
 import { mergeAttributes, Node } from '@tiptap/core';
 import StarterKit from '@tiptap/starter-kit';
 
-import { Editor, EditorContent, SvelteNodeViewRenderer } from '../lib';
+import { Editor, EditorContent, SvelteNodeViewRenderer } from '$lib';
 import CounterComponent from './components/Counter.svelte';
 import EditableComponent from './components/Editable.svelte';
 

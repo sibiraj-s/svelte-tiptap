@@ -1,7 +1,7 @@
 import { render, act } from '@testing-library/svelte';
 import StarterKit from '@tiptap/starter-kit';
 
-import { BubbleMenu, Editor } from '../lib';
+import { BubbleMenu, Editor } from '$lib';
 import BubbleMenuComponent from './components/BubbleMenu.svelte';
 
 it('should render the bubble menu correctly', async () => {

@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import {
     Editor, EditorContent, FloatingMenu, BubbleMenu, createEditor,
-} from '../lib';
+} from '$lib';
   import StarterKit from '@tiptap/starter-kit';
   import type { Readable } from 'svelte/store';
 

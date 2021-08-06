@@ -1,7 +1,7 @@
 import { render, act } from '@testing-library/svelte';
 import StarterKit from '@tiptap/starter-kit';
 
-import { Editor, EditorContent } from '../lib';
+import { Editor, EditorContent } from '$lib';
 
 it('should render the content correctly', async () => {
   const editor = new Editor({

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Editor, EditorContent, FloatingMenu } from '../../lib';
+  import { Editor, EditorContent, FloatingMenu } from '$lib';
   import StarterKit from '@tiptap/starter-kit';
 
   export let editor: Editor = new Editor({ extensions: [StarterKit] });

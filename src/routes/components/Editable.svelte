@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { NodeViewWrapper, editable } from '../lib';
+  import { NodeViewWrapper, editable } from '$lib';
 </script>
 
 <NodeViewWrapper class="svelte-component">

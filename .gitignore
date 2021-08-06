@@ -218,6 +218,7 @@ $RECYCLE.BIN/
 # and uncomment the following lines
 # .pnp.*
 
-### Project ###
-build/
-dist/
+### Svelte Kit ###
+/build
+/.svelte-kit
+/package

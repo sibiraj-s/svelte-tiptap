@@ -19,7 +19,7 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
 
   contentDOMElement!: HTMLElement | null;
 
-  mount(): void {
+  override mount(): void {
     const Component = this.component;
 
     const props: NodeViewProps = {
@@ -61,11 +61,11 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
     });
   }
 
-  get dom() {
+  override get dom() {
     return this.renderer.dom;
   }
 
-  get contentDOM() {
+  override get contentDOM() {
     if (this.node.isLeaf) {
       return null;
     }

@@ -13,6 +13,16 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v0.4.0 (2021-08-06)
+
+#### Features
+
+- generate type definitions ([8a7e84b](https://github.com/sibiraj-s/svelte-tiptap/commit/8a7e84b))
+
+#### Internal
+
+- migrate to svelte-kit ([8a7e84b](https://github.com/sibiraj-s/svelte-tiptap/commit/8a7e84b))
+
 ## v0.3.0 (2021-07-31)
 
 #### Features

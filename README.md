@@ -9,7 +9,7 @@
 [![Monthly Downloads](https://badgen.net/npm/dm/svelte-tiptap)](https://www.npmjs.com/package/svelte-tiptap)
 [![License](https://badgen.net/npm/license/svelte-tiptap)](https://github.com/sibiraj-s/svelte-tiptap/blob/master/LICENSE)
 
-[repl](https://svelte.dev/repl/5e09f7b8b0ae421081107a404bb7c280)
+[demo/repl](https://svelte.dev/repl/5e09f7b8b0ae421081107a404bb7c280)
 
 ## Installation
 

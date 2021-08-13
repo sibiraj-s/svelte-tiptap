@@ -32,7 +32,7 @@
     "svelte": "^3.0.0"
   },
   "devDependencies": {
-    "@sveltejs/kit": "^1.0.0-next.146",
+    "@sveltejs/kit": "^1.0.0-next.147",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/svelte": "^3.0.3",
     "@tiptap/core": "^2.0.0-beta.94",
@@ -62,7 +62,7 @@
     "svelte-preprocess": "^4.7.4",
     "svelte2tsx": "^0.4.5",
     "ts-jest": "^27.0.4",
-    "tslib": "^2.3.0",
+    "tslib": "^2.3.1",
     "typescript": "^4.3.5"
   }
 }

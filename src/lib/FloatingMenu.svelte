@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { FloatingMenuPlugin, FloatingMenuPluginKey } from '@tiptap/extension-floating-menu';
+  import { FloatingMenuPlugin } from '@tiptap/extension-floating-menu';
   import type { FloatingMenuPluginProps } from '@tiptap/extension-floating-menu';
   import { onDestroy, onMount } from 'svelte';
 
@@ -7,6 +7,8 @@
 
   export let editor: Editor;
   export let tippyOptions: FloatingMenuPluginProps['tippyOptions'] = {};
+  export let key: FloatingMenuPluginProps['key'] = 'SvelteTiptapFloatingMenu';
+  export let shouldShow: FloatingMenuPluginProps['shouldShow'] = null;
   let element: HTMLElement;
 
   if (!editor) {
@@ -16,15 +18,17 @@
   onMount(() => {
     editor.registerPlugin(
       FloatingMenuPlugin({
+        key,
         editor,
         element,
         tippyOptions,
+        shouldShow,
       }),
     );
   });
 
   onDestroy(() => {
-    editor.unregisterPlugin(FloatingMenuPluginKey);
+    editor.unregisterPlugin(key);
   });
 </script>
 

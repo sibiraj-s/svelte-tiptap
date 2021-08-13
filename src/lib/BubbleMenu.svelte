@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { BubbleMenuPlugin, BubbleMenuPluginKey } from '@tiptap/extension-bubble-menu';
+  import { BubbleMenuPlugin } from '@tiptap/extension-bubble-menu';
   import type { BubbleMenuPluginProps } from '@tiptap/extension-bubble-menu';
   import { onDestroy, onMount } from 'svelte';
 
@@ -7,6 +7,8 @@
 
   export let editor: Editor;
   export let tippyOptions: BubbleMenuPluginProps['tippyOptions'] = {};
+  export let key: BubbleMenuPluginProps['key'] = 'SvelteTiptapBubbleMenu';
+  export let shouldShow: BubbleMenuPluginProps['shouldShow'] = null;
   let element: HTMLElement;
 
   if (!editor) {
@@ -16,15 +18,17 @@
   onMount(() => {
     editor.registerPlugin(
       BubbleMenuPlugin({
+        key,
         editor,
         element,
         tippyOptions,
+        shouldShow,
       }),
     );
   });
 
   onDestroy(() => {
-    editor.unregisterPlugin(BubbleMenuPluginKey);
+    editor.unregisterPlugin(key);
   });
 </script>
 

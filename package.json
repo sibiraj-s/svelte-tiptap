@@ -26,7 +26,7 @@
     "prepublishOnly": "is-ci || npm run build"
   },
   "peerDependencies": {
-    "@tiptap/core": "^2.0.0-beta.97",
+    "@tiptap/core": "^2.0.0-beta.98",
     "@tiptap/extension-bubble-menu": "^2.0.0-beta.28",
     "@tiptap/extension-floating-menu": "^2.0.0-beta.22",
     "svelte": "^3.0.0"
@@ -35,12 +35,12 @@
     "@sveltejs/kit": "^1.0.0-next.147",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/svelte": "^3.0.3",
-    "@tiptap/core": "^2.0.0-beta.97",
+    "@tiptap/core": "^2.0.0-beta.98",
     "@tiptap/extension-bubble-menu": "^2.0.0-beta.28",
     "@tiptap/extension-floating-menu": "^2.0.0-beta.22",
     "@tiptap/starter-kit": "^2.0.0-beta.95",
     "@types/jest": "^26.0.24",
-    "@types/node": "^16.4.13",
+    "@types/node": "^16.6.1",
     "@types/prosemirror-model": "^1.13.1",
     "@types/prosemirror-view": "^1.18.0",
     "@typescript-eslint/eslint-plugin": "^4.29.1",

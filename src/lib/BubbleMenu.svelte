@@ -7,7 +7,7 @@
 
   export let editor: Editor;
   export let tippyOptions: BubbleMenuPluginProps['tippyOptions'] = {};
-  export let key: BubbleMenuPluginProps['key'] = 'SvelteTiptapBubbleMenu';
+  export let pluginKey: BubbleMenuPluginProps['pluginKey'] = 'SvelteTiptapBubbleMenu';
   export let shouldShow: BubbleMenuPluginProps['shouldShow'] = null;
   let element: HTMLElement;
 
@@ -18,7 +18,7 @@
   onMount(() => {
     editor.registerPlugin(
       BubbleMenuPlugin({
-        key,
+        pluginKey,
         editor,
         element,
         tippyOptions,
@@ -28,7 +28,7 @@
   });
 
   onDestroy(() => {
-    editor.unregisterPlugin(key);
+    editor.unregisterPlugin(pluginKey);
   });
 </script>
 

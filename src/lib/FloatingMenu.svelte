@@ -7,7 +7,7 @@
 
   export let editor: Editor;
   export let tippyOptions: FloatingMenuPluginProps['tippyOptions'] = {};
-  export let key: FloatingMenuPluginProps['key'] = 'SvelteTiptapFloatingMenu';
+  export let pluginKey: FloatingMenuPluginProps['pluginKey'] = 'SvelteTiptapFloatingMenu';
   export let shouldShow: FloatingMenuPluginProps['shouldShow'] = null;
   let element: HTMLElement;
 
@@ -18,7 +18,7 @@
   onMount(() => {
     editor.registerPlugin(
       FloatingMenuPlugin({
-        key,
+        pluginKey,
         editor,
         element,
         tippyOptions,
@@ -28,7 +28,7 @@
   });
 
   onDestroy(() => {
-    editor.unregisterPlugin(key);
+    editor.unregisterPlugin(pluginKey);
   });
 </script>
 

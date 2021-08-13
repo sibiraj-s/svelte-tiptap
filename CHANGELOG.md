@@ -13,6 +13,12 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v0.4.3 (2021-08-13)
+
+#### Dependency Updates
+
+- update tiptap dependencies ([8f68062](https://github.com/sibiraj-s/svelte-tiptap/commit/8f68062))
+
 ## v0.4.2 (2021-08-13)
 
 #### Dependency Updates

@@ -26,19 +26,19 @@
     "prepublishOnly": "is-ci || npm run build"
   },
   "peerDependencies": {
-    "@tiptap/core": "^2.0.0-beta.98",
-    "@tiptap/extension-bubble-menu": "^2.0.0-beta.28",
-    "@tiptap/extension-floating-menu": "^2.0.0-beta.22",
+    "@tiptap/core": "^2.0.0-beta.99",
+    "@tiptap/extension-bubble-menu": "^2.0.0-beta.29",
+    "@tiptap/extension-floating-menu": "^2.0.0-beta.23",
     "svelte": "^3.0.0"
   },
   "devDependencies": {
     "@sveltejs/kit": "^1.0.0-next.147",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/svelte": "^3.0.3",
-    "@tiptap/core": "^2.0.0-beta.98",
-    "@tiptap/extension-bubble-menu": "^2.0.0-beta.28",
-    "@tiptap/extension-floating-menu": "^2.0.0-beta.22",
-    "@tiptap/starter-kit": "^2.0.0-beta.96",
+    "@tiptap/core": "^2.0.0-beta.99",
+    "@tiptap/extension-bubble-menu": "^2.0.0-beta.29",
+    "@tiptap/extension-floating-menu": "^2.0.0-beta.23",
+    "@tiptap/starter-kit": "^2.0.0-beta.97",
     "@types/jest": "^26.0.24",
     "@types/node": "^16.6.1",
     "@types/prosemirror-model": "^1.13.1",

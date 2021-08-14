@@ -4,17 +4,26 @@ import StarterKit from '@tiptap/starter-kit';
 import { Editor, FloatingMenu } from '$lib';
 import FloatingMenuComponent from './components/FloatingMenu.svelte';
 
+afterEach(() => {
+  jest.useRealTimers();
+});
+
 it('should render the floating menu correctly', async () => {
+  jest.useFakeTimers();
+
   const editor = new Editor({
     content: 'Hello world!',
     extensions: [StarterKit],
   });
 
-  const { getByTestId } = render(FloatingMenuComponent, { editor });
+  const { getByTestId, container } = render(FloatingMenuComponent, { editor });
   await act();
 
   editor.chain().clearContent().focus().run();
   await act();
+  jest.runAllTimers();
+
+  expect(container.querySelector('[data-tippy-root]')).toBeTruthy();
 
   expect(getByTestId('bold-button')).toBeDefined();
   expect(getByTestId('italics-button')).toBeDefined();

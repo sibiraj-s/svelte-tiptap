@@ -31,7 +31,8 @@ A Simple editor.
 
 ```svelte
 <script lang="ts">
-  import { onMount, onDestroy, Readable } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
+  import type { Readable } from 'svelte/store';
   import { createEditor, EditorContent } from 'svelte-tiptap';
 
   let editor: Readable<Editor>;
@@ -162,7 +163,8 @@ export const SvelteCounterExtension = Node.create({
 ### Use the extension
 
 ```ts
-import { onMount, onDestroy, Readable } from 'svelte';
+import { onMount, onDestroy } from 'svelte';
+import type { Readable } from 'svelte/store';
 import { Editor, EditorContent } from 'svelte-tiptap';
 import StarterKit from '@tiptap/starter-kit';
 

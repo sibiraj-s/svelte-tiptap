@@ -1,7 +1,5 @@
-import {
-  NodeView, NodeViewRenderer, Editor, NodeViewProps,
-  NodeViewRendererOptions,
-} from '@tiptap/core';
+import { NodeView, Editor } from '@tiptap/core';
+import type { NodeViewRenderer, NodeViewProps, NodeViewRendererOptions } from '@tiptap/core';
 import type { Decoration } from 'prosemirror-view';
 import type { Node as ProseMirrorNode } from 'prosemirror-model';
 import type { SvelteComponent } from 'svelte';

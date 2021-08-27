@@ -29,8 +29,9 @@
     // Project preferences
     "types": ["jest", "@testing-library/jest-dom"],
     "noImplicitAny": true,
-    "noImplicitOverride": true
-    // "exactOptionalPropertyTypes": true // TODO: Enable after TS 4.4
+    "noImplicitOverride": true,
+    "strict": true,
+    "exactOptionalPropertyTypes": true
   },
   "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte", "tests/**/*.ts", "tests/**/*.svelte"],
   "exclude": ["node_modules/", "package/"]

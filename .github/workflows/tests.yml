@@ -10,8 +10,8 @@ on:
     branches: master
 
 jobs:
-  test:
-    name: Tests
+  test-unit:
+    name: Unit Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -35,3 +35,36 @@ jobs:
 
       - name: Test
         run: npm run test
+
+  test-e2e:
+    name: E2E Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Using node v${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{env.NODE_VERSION}}
+          cache: npm
+
+      - run: node --version
+      - run: npm --version
+
+      - name: NPM Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Run Cypress tests
+        run: npm run test
+        with:
+          start: npm run dev
+          wait-on: 'http://localhost:3009'
+          project: ./e2e
+          browser: chrome
+          quiet: true
+          headless: true

@@ -19,6 +19,10 @@ overrides:
       - 'tests/*'
     env:
       jest: true
+  - files:
+      - 'e2e/**/*'
+    extends:
+      - plugin:cypress/recommended
 
 rules:
   no-warning-comments: off

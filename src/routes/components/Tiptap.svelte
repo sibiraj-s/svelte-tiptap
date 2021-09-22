@@ -56,15 +56,19 @@
 
 {#if editor}
   <FloatingMenu editor={$editor}>
-    <button on:click={toggleBold} class:active={isActive('bold')}> B </button>
-    <button on:click={toggleItalic} class:active={isActive('italic')}> I </button>
+    <div data-test-id="floating-menu">
+      <button on:click={toggleBold} class:active={isActive('bold')}> B </button>
+      <button on:click={toggleItalic} class:active={isActive('italic')}> I </button>
+    </div>
   </FloatingMenu>
 {/if}
 
 {#if editor}
   <BubbleMenu editor={$editor}>
-    <button on:click={toggleBold} class:active={isActive('bold')}> B </button>
-    <button on:click={toggleItalic} class:active={isActive('italic')}> I </button>
+    <div data-test-id="bubble-menu">
+      <button on:click={toggleBold} class:active={isActive('bold')}> B </button>
+      <button on:click={toggleItalic} class:active={isActive('italic')}> I </button>
+    </div>
   </BubbleMenu>
 {/if}
 

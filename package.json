@@ -19,9 +19,10 @@
   "scripts": {
     "prebuiild": "npm run validate",
     "build": "svelte-kit package",
-    "dev": "svelte-kit dev",
+    "dev": "svelte-kit dev -p 3009",
     "validate": "svelte-check --tsconfig ./tsconfig.json",
     "test": "npm run validate && jest",
+    "e2e": "cypress open --project e2e",
     "prepare": "is-ci || husky install",
     "prepublishOnly": "is-ci || npm run build"
   },
@@ -46,8 +47,10 @@
     "@typescript-eslint/eslint-plugin": "^4.31.2",
     "@typescript-eslint/parser": "^4.31.2",
     "classnames": "^2.3.1",
+    "cypress": "^8.4.1",
     "eslint": "^7.32.0",
     "eslint-config-pegasus": "^2.1.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-svelte3": "^3.2.1",
     "husky": "^7.0.2",
     "is-ci": "^3.0.0",

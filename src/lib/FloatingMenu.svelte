@@ -21,8 +21,8 @@
         pluginKey,
         editor,
         element,
-        tippyOptions,
-        shouldShow,
+        tippyOptions: tippyOptions ?? {},
+        shouldShow: shouldShow ?? null,
       }),
     );
   });

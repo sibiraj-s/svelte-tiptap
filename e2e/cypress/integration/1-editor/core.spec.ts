@@ -13,7 +13,6 @@ describe('example to-do app', () => {
 
   it('should render bubble menu on selection', () => {
     cy.get('.ProseMirror').focus().type('{selectall}');
-
     cy.get('[data-test-id=bubble-menu]').should('have.length', 1);
   });
 

@@ -13,6 +13,17 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v0.4.4 (2021-09-28)
+
+#### Dependency Updates
+
+- update tiptap dependencies ([e23e024](https://github.com/sibiraj-s/svelte-tiptap/commit/e23e024))
+
+#### Internal
+
+- enable typescript strict mode ([c023eeb](https://github.com/sibiraj-s/svelte-tiptap/commit/c023eeb))
+- setup e2e testing with cypress ([0f138b4](https://github.com/sibiraj-s/svelte-tiptap/commit/0f138b4))
+
 ## v0.4.3 (2021-08-13)
 
 #### Dependency Updates

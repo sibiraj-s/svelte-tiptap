@@ -13,7 +13,7 @@
   };
 </script>
 
-<NodeViewWrapper class={cx('svelte-component', { selected })} action={draggable}>
+<NodeViewWrapper class={cx('svelte-component counter-component', { selected })} action={draggable}>
   <span class="label">Svelte Component</span>
 
   <div class="content">

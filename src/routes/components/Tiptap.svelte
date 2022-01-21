@@ -1,8 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import {
-    Editor, EditorContent, FloatingMenu, BubbleMenu, createEditor,
-} from '$lib';
+  import { Editor, EditorContent, FloatingMenu, BubbleMenu, createEditor } from '$lib';
   import StarterKit from '@tiptap/starter-kit';
   import type { Readable } from 'svelte/store';
 
@@ -14,11 +12,11 @@
     editor = createEditor({
       extensions: [StarterKit, SvelteCounterExtension, SvelteEditableExtension],
       content: `
-        <p>This is still the text editor you’re used to, but enriched with node views.</p>
+        <p>This is still the text editor you're used to, but enriched with node views.</p>
         <svelte-counter-component count="0"></svelte-counter-component>
         <p>This is an editable component</p>
         <svelte-editable-component>This is editable</svelte-editable-component>
-        <p>Did you see that? That’s a Svelte component. We are really living in the future.</p>
+        <p>Did you see that? That's a Svelte component. We are really living in the future.</p>
       `,
     });
   });

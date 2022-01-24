@@ -1,7 +1,7 @@
 <script lang="ts">
+  import { onDestroy, onMount } from 'svelte';
   import { BubbleMenuPlugin } from '@tiptap/extension-bubble-menu';
   import type { BubbleMenuPluginProps } from '@tiptap/extension-bubble-menu';
-  import { onDestroy, onMount } from 'svelte';
 
   import type { Editor } from './Editor';
 

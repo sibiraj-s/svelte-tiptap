@@ -1,7 +1,7 @@
 <script lang="ts">
+  import { onDestroy, onMount } from 'svelte';
   import { FloatingMenuPlugin } from '@tiptap/extension-floating-menu';
   import type { FloatingMenuPluginProps } from '@tiptap/extension-floating-menu';
-  import { onDestroy, onMount } from 'svelte';
 
   import type { Editor } from './Editor';
 
@@ -15,7 +15,7 @@
     throw new Error('Missing editor instance.');
   }
 
-  onMount(() => {
+  onMount(async () => {
     editor.registerPlugin(
       FloatingMenuPlugin({
         pluginKey,
@@ -23,7 +23,7 @@
         element,
         tippyOptions,
         shouldShow,
-      }),
+      })
     );
   });
 

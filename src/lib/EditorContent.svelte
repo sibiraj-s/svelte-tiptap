@@ -1,9 +1,6 @@
 <script lang="ts">
+  import { beforeUpdate, onDestroy, onMount, tick } from 'svelte';
   import type { Editor } from './Editor';
-
-  import {
-    beforeUpdate, onDestroy, onMount, tick,
-} from 'svelte';
 
   let element: HTMLElement;
   export let editor: Editor;

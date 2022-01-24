@@ -1,16 +1,16 @@
 <script lang="ts">
-import type { NodeViewProps } from '@tiptap/core';
-import cx from 'classnames';
+  import type { NodeViewProps } from '@tiptap/core';
+  import cx from 'classnames';
 
-import { NodeViewWrapper } from '$lib';
+  import { NodeViewWrapper } from '$lib';
 
-export let node: NodeViewProps['node'];
-export let updateAttributes: NodeViewProps['updateAttributes'];
-export let selected: NodeViewProps['selected'] = false;
+  export let node: NodeViewProps['node'];
+  export let updateAttributes: NodeViewProps['updateAttributes'];
+  export let selected: NodeViewProps['selected'] = false;
 
-const handleClick = () => {
-  updateAttributes({ count: node.attrs.count + 1 });
-};
+  const handleClick = () => {
+    updateAttributes({ count: node.attrs.count + 1 });
+  };
 </script>
 
 <NodeViewWrapper class={cx('svelte-component', { selected })} data-testid="nodeview-wrapper">

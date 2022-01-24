@@ -1,10 +1,11 @@
 <script lang="ts">
   import { getContext, onMount, tick } from 'svelte';
-  import { doNothingAction } from './actions';
+
+  import { Action, doNothingAction } from './actions';
 
   const { onDragStart, isInline } = getContext('TitTapNodeView');
   let element: HTMLElement;
-  export let action = doNothingAction;
+  export let action: Action = doNothingAction;
 
   onMount(async () => {
     await tick();

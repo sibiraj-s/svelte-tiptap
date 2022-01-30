@@ -33,5 +33,5 @@
     "strict": true
   },
   "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte", "tests/**/*.ts", "tests/**/*.svelte"],
-  "exclude": ["node_modules/", "package/"]
+  "exclude": ["node_modules/", "package/", "build/", ".svelte/", ".svelte-kit/"]
 }

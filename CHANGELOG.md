@@ -13,6 +13,21 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v0.4.7 (2021-12-31)
+
+#### Bug Fixes
+
+- add workaround to fix errors while unmounting floating-menu and bubble-menu ([45feb0c](https://github.com/sibiraj-s/svelte-tiptap/commit/45feb0c))
+
+#### Dependency Updates
+
+- update tiptap peerDependencies ([19db754](https://github.com/sibiraj-s/svelte-tiptap/commit/19db754))
+- update devDependencies ([dccf621](https://github.com/sibiraj-s/svelte-tiptap/commit/dccf621), [413e034](https://github.com/sibiraj-s/svelte-tiptap/commit/413e034), [3232324](https://github.com/sibiraj-s/svelte-tiptap/commit/3232324))
+
+### Internal
+
+- update demo site ([a506f91](https://github.com/sibiraj-s/svelte-tiptap/commit/a506f91))
+
 ## v0.4.6 (2021-12-31)
 
 #### Dependency Updates

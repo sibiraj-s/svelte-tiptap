@@ -15,7 +15,7 @@
     throw new Error('Missing editor instance.');
   }
 
-  onMount(async () => {
+  onMount(() => {
     editor.registerPlugin(
       FloatingMenuPlugin({
         pluginKey,
@@ -32,6 +32,12 @@
   });
 </script>
 
-<div bind:this={element} class={$$props.class} style="visibility: hidden;">
-  <slot />
+<!-- Wrapping empty div to fix error with unmount -->
+<!-- https://github.com/ueberdosis/tiptap/issues/2241 -->
+<!-- https://github.com/sveltejs/svelte/pull/6996 -->
+<!-- https://github.com/sveltejs/svelte/pull/6910 -->
+<div>
+  <div bind:this={element} class={$$props.class} style="visibility: hidden;">
+    <slot />
+  </div>
 </div>

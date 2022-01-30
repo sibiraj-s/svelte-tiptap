@@ -5,6 +5,7 @@ import type { Node as ProseMirrorNode } from 'prosemirror-model';
 import type { SvelteComponent } from 'svelte';
 
 import SvelteRenderer from './SvelteRenderer';
+import { TIPTAP_NODE_VIEW } from './context';
 
 export interface SvelteNodeViewRendererOptions extends NodeViewRendererOptions {
   update: ((node: ProseMirrorNode, decorations: Decoration[]) => boolean) | null;
@@ -41,7 +42,7 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
     }
 
     const context = new Map();
-    context.set('TitTapNodeView', {
+    context.set(TIPTAP_NODE_VIEW, {
       isInline: this.node.isInline,
       onDragStart: this.onDragStart.bind(this),
     });

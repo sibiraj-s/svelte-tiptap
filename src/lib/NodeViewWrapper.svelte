@@ -2,8 +2,9 @@
   import { getContext, onMount, tick } from 'svelte';
 
   import { Action, doNothingAction } from './actions';
+  import { TIPTAP_NODE_VIEW } from './context';
 
-  const { onDragStart, isInline } = getContext('TitTapNodeView');
+  const { onDragStart, isInline } = getContext(TIPTAP_NODE_VIEW);
   let element: HTMLElement;
   export let action: Action = doNothingAction;
 

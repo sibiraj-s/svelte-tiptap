@@ -19,6 +19,7 @@
   "scripts": {
     "prebuiild": "npm run validate",
     "build": "svelte-kit package",
+    "build:docs": "svelte-kit build",
     "dev": "svelte-kit dev -p 3009",
     "validate": "svelte-check --tsconfig ./tsconfig.json",
     "test": "npm run validate && jest",
@@ -34,6 +35,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
+    "@sveltejs/adapter-static": "^1.0.0-next.26",
     "@sveltejs/kit": "^1.0.0-next.251",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/svelte": "^3.0.3",

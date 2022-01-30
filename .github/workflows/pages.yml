@@ -1,0 +1,48 @@
+name: Deploy to Github Pages
+
+env:
+  NODE_VERSION: 16
+
+on:
+  push:
+    branches: master
+
+jobs:
+  build-deploy:
+    name: Build and Deploy to Github Pages
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Using node v${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{env.NODE_VERSION}}
+          cache: npm
+
+      - run: node --version
+      - run: npm --version
+
+      - name: NPM Install
+        run: npm ci
+        env:
+          CYPRESS_INSTALL_BINARY: 0
+
+      - name: Build Package
+        run: npm run build
+
+      - name: Build Pages
+        run: npm run build:docs
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'

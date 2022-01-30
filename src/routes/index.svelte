@@ -5,7 +5,7 @@
   import type { Readable } from 'svelte/store';
   import cx from 'classnames';
 
-  import { SvelteCounterExtension, SvelteEditableExtension } from './components/SvelteExtension';
+  import { SvelteCounterExtension, SvelteEditableExtension } from './_components/SvelteExtension';
 
   let editor: Readable<Editor>;
 

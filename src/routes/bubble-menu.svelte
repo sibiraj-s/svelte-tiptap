@@ -37,7 +37,7 @@
   <title>Tiptap Svelte</title>
 </svelte:head>
 
-<h1 class="mb-2">Editor with Floating Menu</h1>
+<h1 class="mb-2">Editor with Bubble Menu</h1>
 
 {#if editor}
   <BubbleMenu editor={$editor}>

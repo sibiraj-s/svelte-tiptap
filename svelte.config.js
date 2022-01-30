@@ -16,16 +16,16 @@ const config = {
     // generate static site
     adapter: adapter({
       pages: 'build',
-			assets: 'build',
-			fallback: null,
-			precompress: false
+      assets: 'build',
+      fallback: 'index.html',
+      precompress: false,
     }),
 
     paths: {
-			base: dev ? '' : '/svelte-tiptap',
-		},
+      base: dev ? '' : '/svelte-tiptap',
+    },
 
-    appDir: 'core'
+    appDir: 'core',
   },
 };
 

@@ -16,15 +16,15 @@
   }
 
   onMount(() => {
-    editor.registerPlugin(
-      BubbleMenuPlugin({
-        pluginKey,
-        editor,
-        element,
-        tippyOptions,
-        shouldShow,
-      })
-    );
+    const plugin = BubbleMenuPlugin({
+      pluginKey,
+      editor,
+      element,
+      tippyOptions,
+      shouldShow,
+    });
+
+    editor.registerPlugin(plugin);
   });
 
   onDestroy(() => {

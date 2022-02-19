@@ -16,15 +16,15 @@
   }
 
   onMount(() => {
-    editor.registerPlugin(
-      FloatingMenuPlugin({
-        pluginKey,
-        editor,
-        element,
-        tippyOptions,
-        shouldShow,
-      })
-    );
+    const plugin = FloatingMenuPlugin({
+      pluginKey,
+      editor,
+      element,
+      tippyOptions,
+      shouldShow,
+    });
+
+    editor.registerPlugin(plugin);
   });
 
   onDestroy(() => {

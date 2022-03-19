@@ -2,7 +2,6 @@
 
 > Svelte components for tiptap v2
 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/sibiraj-s/svelte-tiptap)
 [![Tests](https://github.com/sibiraj-s/svelte-tiptap/actions/workflows/tests.yml/badge.svg)](https://github.com/sibiraj-s/svelte-tiptap/actions/workflows/tests.yml)
 [![NPM Version](https://badgen.net/npm/v/svelte-tiptap)](https://www.npmjs.com/package/svelte-tiptap)
 [![Total Downloads](https://badgen.net/npm/dt/svelte-tiptap)](https://www.npmjs.com/package/svelte-tiptap)

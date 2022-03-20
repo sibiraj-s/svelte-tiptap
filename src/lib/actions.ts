@@ -7,6 +7,8 @@ export const draggable = (node: HTMLElement): void => {
   node.setAttribute('data-drag-handle', '');
 };
 
-export const doNothingAction = (): void => { /* do nothing */ };
+export const doNothingAction = (): void => {
+  /* do nothing */
+};
 
-export type Action = (node: HTMLElement) => void
+export type Action = (node: HTMLElement) => void;

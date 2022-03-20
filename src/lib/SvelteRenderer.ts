@@ -2,13 +2,13 @@ import type { NodeViewProps } from '@tiptap/core';
 import type { SvelteComponent } from 'svelte';
 
 interface RendererOptions {
-  element: HTMLElement
+  element: HTMLElement;
 }
 
 class SvelteRenderer {
-  component: SvelteComponent
+  component: SvelteComponent;
 
-  dom: HTMLElement
+  dom: HTMLElement;
 
   constructor(component: SvelteComponent, { element }: RendererOptions) {
     this.component = component;

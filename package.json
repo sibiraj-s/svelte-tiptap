@@ -17,13 +17,14 @@
     "rich-text-editor"
   ],
   "scripts": {
+    "dev": "svelte-kit dev -p 3009",
     "prebuiild": "npm run validate",
     "build": "svelte-kit package",
     "build:docs": "svelte-kit build",
-    "dev": "svelte-kit dev -p 3009",
     "validate": "svelte-check --tsconfig ./tsconfig.json",
     "test": "npm run validate && jest",
     "e2e": "cypress open --project e2e",
+    "lint": "eslint --ignore-path .gitignore .",
     "prepare": "is-ci || husky install",
     "prepublishOnly": "is-ci || npm run build"
   },

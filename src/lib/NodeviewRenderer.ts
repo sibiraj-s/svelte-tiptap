@@ -11,7 +11,7 @@ export interface SvelteNodeViewRendererOptions extends NodeViewRendererOptions {
   update: ((node: ProseMirrorNode, decorations: Decoration[]) => boolean) | null;
 }
 
-type SvelteComponentRaw = typeof SvelteComponent
+type SvelteComponentRaw = typeof SvelteComponent;
 
 class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeViewRendererOptions> {
   renderer!: SvelteRenderer;

@@ -22,6 +22,10 @@ const config = {
       base: dev ? '' : '/svelte-tiptap',
     },
 
+    prerender: {
+      default: true,
+    },
+
     appDir: 'core',
   },
 };

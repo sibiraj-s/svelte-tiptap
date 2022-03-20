@@ -33,11 +33,8 @@ jobs:
         env:
           CYPRESS_INSTALL_BINARY: 0
 
-      - name: Build Package
+      - name: Build Site
         run: npm run build
-
-      - name: Build Pages
-        run: npm run build:docs
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { NodeViewProps } from '@tiptap/core';
   import cx from 'classnames';
-
   import { NodeViewWrapper } from '$lib';
 
   export let node: NodeViewProps['node'];

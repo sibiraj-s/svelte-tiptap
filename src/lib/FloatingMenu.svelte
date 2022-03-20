@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onDestroy, onMount } from 'svelte';
-  import { FloatingMenuPlugin } from '@tiptap/extension-floating-menu';
-  import type { FloatingMenuPluginProps } from '@tiptap/extension-floating-menu';
+  import { FloatingMenuPlugin, type FloatingMenuPluginProps } from '@tiptap/extension-floating-menu';
 
   import type { Editor } from './Editor';
 

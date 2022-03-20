@@ -1,5 +1,5 @@
-import type { NodeViewProps } from '@tiptap/core';
 import type { SvelteComponent } from 'svelte';
+import type { NodeViewProps } from '@tiptap/core';
 
 interface RendererOptions {
   element: HTMLElement;

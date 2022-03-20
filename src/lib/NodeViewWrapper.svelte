@@ -1,8 +1,7 @@
 <script lang="ts">
   import { getContext, onMount, tick } from 'svelte';
 
-  import type { Action } from './types';
-  import { doNothingAction } from './actions';
+  import { doNothingAction, type Action } from './actions';
   import { TIPTAP_NODE_VIEW } from './context';
 
   const { onDragStart, isInline } = getContext(TIPTAP_NODE_VIEW);

@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { Editor, EditorContent, BubbleMenu, createEditor } from '$lib';
-  import StarterKit from '@tiptap/starter-kit';
   import type { Readable } from 'svelte/store';
+  import StarterKit from '@tiptap/starter-kit';
   import cx from 'classnames';
+  import { Editor, EditorContent, BubbleMenu, createEditor } from '$lib';
 
   let editor: Readable<Editor>;
 

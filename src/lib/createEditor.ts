@@ -1,6 +1,5 @@
 import type { EditorOptions } from '@tiptap/core';
-import { readable } from 'svelte/store';
-import type { Readable } from 'svelte/store';
+import { readable, type Readable } from 'svelte/store';
 
 import { Editor } from './Editor';
 

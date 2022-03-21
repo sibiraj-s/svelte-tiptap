@@ -24,7 +24,7 @@
     "test": "npm run check && jest",
     "e2e": "cypress open --project e2e",
     "lint": "eslint --ignore-path .gitignore .",
-    "prepare": "is-ci || husky install",
+    "prepare": "svelte-kit sync && (is-ci || husky install)",
     "prepublishOnly": "is-ci || npm run build"
   },
   "peerDependencies": {

@@ -19,7 +19,6 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm run build
       - run: npm run package
 
       - name: Publish to NPM

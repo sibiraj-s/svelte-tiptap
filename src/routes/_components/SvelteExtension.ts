@@ -5,7 +5,7 @@ import CounterComponent from './Counter.svelte';
 import EditableComponent from './Editable.svelte';
 
 export const SvelteCounterExtension = Node.create({
-  name: 'svelteCounterComponent',
+  name: 'SvelteCounterComponent',
   group: 'block',
   atom: true,
   draggable: true,
@@ -33,7 +33,7 @@ export const SvelteCounterExtension = Node.create({
 });
 
 export const SvelteEditableExtension = Node.create({
-  name: 'svelteEditableComponent',
+  name: 'SvelteEditableComponent',
   group: 'block',
   content: 'inline*',
 

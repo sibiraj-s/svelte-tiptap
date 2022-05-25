@@ -51,6 +51,7 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
 
     const as = this.options.as ?? (this.node.isInline ? 'span' : 'div');
     const target = document.createElement(as);
+    target.classList.add(`node-${this.node.type.name}`);
 
     const svelteComponent: SvelteComponent = new Component({
       target,

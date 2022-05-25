@@ -60,6 +60,10 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
   }
 
   override get dom() {
+    if (!this.renderer.dom.firstElementChild?.hasAttribute('data-node-view-wrapper')) {
+      throw Error('Please use the NodeViewWrapper component for your node view.');
+    }
+
     return this.renderer.dom;
   }
 

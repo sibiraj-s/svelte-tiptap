@@ -1,7 +1,7 @@
 export * from './Editor';
 
 export { default as createEditor } from './createEditor';
-export { default as SvelteNodeViewRenderer } from './NodeviewRenderer';
+export { default as SvelteNodeViewRenderer } from './SvelteNodeViewRenderer';
 export { default as SvelteRenderer } from './SvelteRenderer';
 export { editable, draggable } from './actions';
 

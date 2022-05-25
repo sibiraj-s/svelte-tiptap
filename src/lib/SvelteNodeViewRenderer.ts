@@ -32,7 +32,7 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
       deleteNode: () => this.deleteNode(),
     };
 
-    this.contentDOMElement = this.node.isLeaf ? null : document.createElement(this.node.isInline ? 'span' : 'div');
+    this.contentDOMElement = this.node.isLeaf ? null : document.createElement('div');
 
     if (this.contentDOMElement) {
       // For some reason the whiteSpace prop is not inherited properly in Chrome and Safari
@@ -46,7 +46,7 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
       onDragStart: this.onDragStart.bind(this),
     });
 
-    const target = document.createElement('div');
+    const target = document.createElement(this.node.isInline ? 'span' : 'div');
 
     const svelteComponent: SvelteComponent = new Component({
       target,

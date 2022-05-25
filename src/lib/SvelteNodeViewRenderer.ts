@@ -9,6 +9,7 @@ import { TIPTAP_NODE_VIEW } from './context';
 
 export interface SvelteNodeViewRendererOptions extends NodeViewRendererOptions {
   update: ((node: ProseMirrorNode, decorations: Decoration[]) => boolean) | null;
+  as?: string;
 }
 
 type SvelteComponentRaw = typeof SvelteComponent;
@@ -32,7 +33,9 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
       deleteNode: () => this.deleteNode(),
     };
 
-    this.contentDOMElement = this.node.isLeaf ? null : document.createElement('div');
+    this.contentDOMElement = this.node.isLeaf
+      ? null
+      : document.createElement(this.node.isInline ? 'span' : 'div');
 
     if (this.contentDOMElement) {
       // For some reason the whiteSpace prop is not inherited properly in Chrome and Safari
@@ -46,7 +49,8 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
       onDragStart: this.onDragStart.bind(this),
     });
 
-    const target = document.createElement(this.node.isInline ? 'span' : 'div');
+    const as = this.options.as ?? (this.node.isInline ? 'span' : 'div');
+    const target = document.createElement(as);
 
     const svelteComponent: SvelteComponent = new Component({
       target,

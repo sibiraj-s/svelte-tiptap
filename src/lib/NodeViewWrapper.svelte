@@ -4,9 +4,10 @@
   import { doNothingAction, type Action } from './actions';
   import { TIPTAP_NODE_VIEW } from './context';
 
-  const { onDragStart, isInline } = getContext(TIPTAP_NODE_VIEW);
+  const { onDragStart } = getContext(TIPTAP_NODE_VIEW);
   let element: HTMLElement;
   export let action: Action = doNothingAction;
+  export let as: string = 'div';
 
   onMount(async () => {
     await tick();
@@ -14,14 +15,13 @@
   });
 </script>
 
-<!-- TODO: prefer dynamic componentns -->
-<!-- Issue: https://github.com/sveltejs/svelte/issues/2324 -->
-{#if isInline}
-  <span bind:this={element} data-node-view-wrapper="" on:dragstart={onDragStart} use:action {...$$restProps}>
-    <slot />
-  </span>
-{:else}
-  <div bind:this={element} data-node-view-wrapper="" on:dragstart={onDragStart} use:action {...$$restProps}>
-    <slot />
-  </div>
-{/if}
+<svelte:element
+  this={as}
+  bind:this={element}
+  data-node-view-wrapper=""
+  on:dragstart={onDragStart}
+  use:action
+  {...$$restProps}
+>
+  <slot />
+</svelte:element>

@@ -43,7 +43,6 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
 
     const context = new Map();
     context.set(TIPTAP_NODE_VIEW, {
-      isInline: this.node.isInline,
       onDragStart: this.onDragStart.bind(this),
     });
 

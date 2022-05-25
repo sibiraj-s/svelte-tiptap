@@ -13,6 +13,25 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v0.5.0 (2022-05-25)
+
+#### Features
+
+- support dynamic elements in NodeViewWrapper ([df009fe](https://github.com/sibiraj-s/svelte-tiptap/commit/df009fe))
+- support custom tag types for NodeViewRenderer ([d54dfe7](https://github.com/sibiraj-s/svelte-tiptap/commit/d54dfe7))
+
+#### Bug Fixes
+
+- fix rendering inline elements ([219de17](https://github.com/sibiraj-s/svelte-tiptap/commit/219de17))
+
+#### Enhancements
+
+- throw if NodeViewWrapper is not used for NodeViews ([decbecf](https://github.com/sibiraj-s/svelte-tiptap/commit/decbecf))
+
+#### Breaking Changes
+
+- require svelte v3.48.0 or greater ([8edfa0c](https://github.com/sibiraj-s/svelte-tiptap/commit/8edfa0c))
+
 ## v0.4.7 (2021-12-31)
 
 #### Bug Fixes

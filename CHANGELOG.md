@@ -13,6 +13,12 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v0.5.2 (2022-05-30)
+
+#### Bug Fixes
+
+- downgrade package target to ES2021 ([9459818](https://github.com/sibiraj-s/svelte-tiptap/commit/9459818))
+
 ## v0.5.1 (2022-05-30)
 
 #### Dependency Updates

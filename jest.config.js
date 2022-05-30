@@ -60,7 +60,11 @@ export default {
   // globalTeardown: undefined,
 
   // A set of global variables that need to be available in all test environments
-  // globals: {},
+  globals: {
+    'ts-jest': {
+      tsconfig: 'tests/tsconfig.json',
+    },
+  },
 
   // The maximum amount of workers used to run your tests. Can be specified as % or a number.
   // E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number.

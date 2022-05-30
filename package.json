@@ -36,7 +36,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.1",
     "@sveltejs/adapter-static": "^1.0.0-next.32",
-    "@sveltejs/kit": "1.0.0-next.325",
+    "@sveltejs/kit": "^1.0.0-next.345",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/svelte": "^3.1.1",
     "@tiptap/core": "^2.0.0-beta.176",

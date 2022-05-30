@@ -1,8 +1,7 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "types": ["jest", "@testing-library/jest-dom"],
-    "target": "ES2020"
+    "types": ["jest", "@testing-library/jest-dom"]
   },
   "include": ["**.test.ts"]
 }

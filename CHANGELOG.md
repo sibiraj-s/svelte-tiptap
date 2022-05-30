@@ -13,6 +13,12 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v0.5.1 (2022-05-30)
+
+#### Dependency Updates
+
+- update svelte-kit to v1.0.0-next.345 ([aedbc9d](https://github.com/sibiraj-s/svelte-tiptap/commit/aedbc9d))
+
 ## v0.5.0 (2022-05-25)
 
 #### Features

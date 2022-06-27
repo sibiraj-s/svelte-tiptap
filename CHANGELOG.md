@@ -13,6 +13,12 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v0.6.0 (2022-06-27)
+
+#### Dependency Updates
+
+- update tiptap dependencies ([de57588](https://github.com/sibiraj-s/svelte-tiptap/commit/de57588))
+
 ## v0.5.2 (2022-05-30)
 
 #### Bug Fixes

@@ -56,11 +56,10 @@ jobs:
         run: npm ci
 
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v3
+        uses: cypress-io/github-action@v4
         with:
           start: npm run dev
           wait-on: 'http://localhost:3009'
-          project: ./e2e
           browser: chrome
           quiet: true
           headless: true

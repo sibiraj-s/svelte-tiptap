@@ -22,7 +22,7 @@
     "package": "svelte-kit package",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "test": "npm run check && jest",
-    "e2e": "cypress open --project e2e",
+    "e2e": "cypress open --e2e",
     "lint": "eslint --ignore-path .gitignore .",
     "prepare": "svelte-kit sync && (is-ci || husky install)",
     "prepublishOnly": "is-ci || npm run build"
@@ -52,7 +52,7 @@
     "autoprefixer": "^10.4.7",
     "classnames": "^2.3.1",
     "commitlint-config-non-conventional": "^1.0.1",
-    "cypress": "^9.7.0",
+    "cypress": "^10.3.0",
     "eslint": "^8.19.0",
     "eslint-config-pegasus": "^3.3.0",
     "eslint-plugin-cypress": "^2.12.1",

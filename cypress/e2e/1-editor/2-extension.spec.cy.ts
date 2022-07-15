@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe('extension', () => {
   it('should render bubble menu on selection', () => {
     cy.visit('/bubble-menu');

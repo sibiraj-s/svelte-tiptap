@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe('core', () => {
   beforeEach(() => {
     cy.visit('/');

@@ -3,16 +3,14 @@ root: true
 extends:
   - pegasus
 
-plugins:
-  - svelte3
-  - '@typescript-eslint'
-
-parser: '@typescript-eslint/parser'
-
 overrides:
   - files:
       - '*.svelte'
-    processor: 'svelte3/svelte3'
+    extends:
+      - plugin:svelte/recommended
+    parser: svelte-eslint-parser
+    parserOptions:
+      parser: '@typescript-eslint/parser'
   - files:
       - '**/*.ts'
     extends:
@@ -29,9 +27,6 @@ overrides:
 rules:
   no-warning-comments: off
   no-duplicate-imports: off
-
-settings:
-  svelte3/typescript: true
 
 env:
   browser: true

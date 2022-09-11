@@ -222,3 +222,7 @@ $RECYCLE.BIN/
 /build
 /.svelte-kit
 /package
+.env.*
+!.env.example
+.vercel
+.output

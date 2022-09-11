@@ -3,8 +3,9 @@
 
   import { doNothingAction, type Action } from './actions';
   import { TIPTAP_NODE_VIEW } from './context';
+  import type { TiptapNodeViewContext } from './types';
 
-  const { onDragStart } = getContext(TIPTAP_NODE_VIEW);
+  const { onDragStart } = getContext<TiptapNodeViewContext>(TIPTAP_NODE_VIEW);
   let element: HTMLElement;
   export let action: Action = doNothingAction;
   export let as: string = 'div';

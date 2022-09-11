@@ -31,11 +31,13 @@ A Simple editor.
   import { onMount, onDestroy } from 'svelte';
   import type { Readable } from 'svelte/store';
   import { createEditor, EditorContent } from 'svelte-tiptap';
+  import StarterKit from '@tiptap/starter-kit';
 
   let editor: Readable<Editor>;
 
   onMount(() => {
     editor = createEditor({
+      extensions: [StarterKit],
       content: `Hello world!`,
     });
   });

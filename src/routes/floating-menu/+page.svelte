@@ -38,6 +38,10 @@
   $: isActive = (name: string, attrs = {}) => $editor.isActive(name, attrs);
 </script>
 
+<svelte:head>
+  <title>Floating Menu | Tiptap Svelte</title>
+</svelte:head>
+
 <h1 class="mb-2">Editor with Floating Menu</h1>
 
 {#if editor}

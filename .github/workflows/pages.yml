@@ -33,7 +33,7 @@ jobs:
           CYPRESS_INSTALL_BINARY: 0
 
       - name: Build Site
-        run: npm run build
+        run: npm run build:demo
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1

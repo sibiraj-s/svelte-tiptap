@@ -1,7 +1,7 @@
 name: Deploy to Github Pages
 
 env:
-  NODE_VERSION: 16
+  NODE_VERSION: 18
 
 on:
   push:
@@ -26,9 +26,6 @@ jobs:
         with:
           node-version: ${{env.NODE_VERSION}}
           cache: npm
-
-      - run: node --version
-      - run: npm --version
 
       - name: NPM Install
         run: npm ci

@@ -69,7 +69,7 @@
     "prosemirror-view": "^1.29.1",
     "sass": "^1.56.2",
     "svelte": "^3.50.1",
-    "svelte-check": "^2.9.0",
+    "svelte-check": "^2.10.2",
     "svelte-jester": "^2.3.2",
     "svelte-preprocess": "^4.10.7",
     "svelte2tsx": "^0.5.16",

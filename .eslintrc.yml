@@ -16,10 +16,6 @@ overrides:
     extends:
       - plugin:@typescript-eslint/recommended
   - files:
-      - 'tests/*'
-    env:
-      jest: true
-  - files:
       - 'e2e/**/*'
     extends:
       - plugin:cypress/recommended

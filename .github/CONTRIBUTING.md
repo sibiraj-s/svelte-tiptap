@@ -31,9 +31,3 @@ npm run dev
 ```bash
 npm run test
 ```
-
-- Watch for changes in tests
-
-```
-npx jest --watch
-```

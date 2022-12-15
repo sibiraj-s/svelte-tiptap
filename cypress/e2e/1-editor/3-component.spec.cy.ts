@@ -8,7 +8,7 @@ describe('components', () => {
   });
 
   it('should render the counter component', () => {
-    cy.get('.ProseMirror #svelte-component #counter-component').should('have.length', 1);
+    cy.get('.ProseMirror #svelte-component #counter-button').should('have.length', 1);
     cy.get('#svelte-component button').contains('This button has been clicked 0 times');
     cy.get('#svelte-component button').click();
     cy.get('#svelte-component button').contains('This button has been clicked 1 times');

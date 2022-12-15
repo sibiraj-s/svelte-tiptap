@@ -1,3 +1,4 @@
+import { it, expect } from 'vitest';
 import { render, act } from '@testing-library/svelte';
 import StarterKit from '@tiptap/starter-kit';
 
@@ -12,7 +13,7 @@ it('should render the content correctly', async () => {
   const { getByText } = render(EditorContent, { editor });
 
   await act();
-  expect(getByText('Hello world!')).toBeInTheDocument();
+  expect(getByText('Hello world!'));
 
   editor.destroy();
 });

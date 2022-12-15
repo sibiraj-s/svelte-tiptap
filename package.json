@@ -72,7 +72,7 @@
     "svelte-check": "^2.10.2",
     "svelte-jester": "^2.3.2",
     "svelte-preprocess": "^4.10.7",
-    "svelte2tsx": "^0.5.16",
+    "svelte2tsx": "^0.5.22",
     "tailwindcss": "^3.2.4",
     "ts-jest": "^29.0.3",
     "tslib": "^2.4.1",

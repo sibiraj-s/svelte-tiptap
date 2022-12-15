@@ -53,10 +53,8 @@ jobs:
         run: npm ci
 
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v5
         with:
-          start: npm run dev
-          wait-on: 'http://localhost:3009'
+          start: npm run dev -- --host=127.0.0.1
+          wait-on: 'http://127.0.0.1:3009'
           browser: chrome
-          quiet: true
-          headless: true

@@ -52,7 +52,7 @@
     "autoprefixer": "^10.4.13",
     "classnames": "^2.3.2",
     "commitlint-config-non-conventional": "^1.0.1",
-    "cypress": "^10.7.0",
+    "cypress": "^12.1.0",
     "eslint": "^8.29.0",
     "eslint-config-pegasus": "^3.4.1",
     "eslint-plugin-cypress": "^2.12.1",

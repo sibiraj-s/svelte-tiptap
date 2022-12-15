@@ -13,6 +13,15 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v0.7.0 (2022-12-15)
+
+#### Dependency Updates
+
+- update svelte-kit to v1 stable ([0c204ff](https://github.com/sibiraj-s/svelte-tiptap/commit/0c204ff))
+- update tiptap dependencies ([2700dae](https://github.com/sibiraj-s/svelte-tiptap/commit/2700dae))
+- update prosemirror dependencies ([52811f2](https://github.com/sibiraj-s/svelte-tiptap/commit/52811f2))
+- update svelte to v3.55.0 ([9124b03](https://github.com/sibiraj-s/svelte-tiptap/commit/9124b03))
+
 ## v0.6.0 (2022-06-27)
 
 #### Dependency Updates

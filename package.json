@@ -46,7 +46,7 @@
     "@tiptap/extension-floating-menu": "2.0.0-beta.207",
     "@tiptap/starter-kit": "2.0.0-beta.207",
     "@types/jest": "^29.2.4",
-    "@types/node": "^16.11.58",
+    "@types/node": "^18.11.15",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
     "autoprefixer": "^10.4.13",

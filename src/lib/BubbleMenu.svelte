@@ -31,12 +31,6 @@
   });
 </script>
 
-<!-- Wrapping empty div to fix error with unmount -->
-<!-- https://github.com/ueberdosis/tiptap/issues/2241 -->
-<!-- https://github.com/sveltejs/svelte/pull/6996 -->
-<!-- https://github.com/sveltejs/svelte/pull/6910 -->
-<div>
-  <div bind:this={element} class={$$props.class} style="visibility: hidden;">
-    <slot />
-  </div>
+<div bind:this={element} class={$$props.class} style="visibility: hidden;">
+  <slot />
 </div>

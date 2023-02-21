@@ -26,7 +26,8 @@
     "e2e": "cypress open --e2e",
     "lint": "eslint . --ext .js,.ts,.svelte --ignore-path .gitignore",
     "prepare": "ts-patch install -s && is-ci || husky install",
-    "prepublishOnly": "is-ci || npm run build"
+    "prepublishOnly": "is-ci || npm run build",
+    "publish:npm": "npm publish --access public"
   },
   "peerDependencies": {
     "@tiptap/core": "^2.0.0-beta.207",

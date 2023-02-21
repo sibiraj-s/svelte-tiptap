@@ -25,7 +25,7 @@
     "test": "npm run check && vitest run",
     "e2e": "cypress open --e2e",
     "lint": "eslint . --ext .js,.ts,.svelte --ignore-path .gitignore",
-    "prepare": "is-ci || husky install",
+    "prepare": "ts-patch install -s && is-ci || husky install",
     "prepublishOnly": "is-ci || npm run build"
   },
   "peerDependencies": {
@@ -39,8 +39,8 @@
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
     "@sveltejs/adapter-static": "^1.0.0",
-    "@sveltejs/kit": "^1.0.1",
-    "@sveltejs/package": "^1.0.1",
+    "@sveltejs/kit": "^1.8.3",
+    "@sveltejs/package": "^2.0.0",
     "@testing-library/svelte": "^3.2.2",
     "@tiptap/core": "^2.0.0-beta.209",
     "@tiptap/extension-bubble-menu": "^2.0.0-beta.209",
@@ -72,9 +72,22 @@
     "svelte2tsx": "^0.6.0",
     "tailwindcss": "^3.2.4",
     "ts-jest": "^29.0.3",
+    "ts-patch": "^2.1.0",
     "tslib": "^2.4.1",
     "typescript": "^4.9.4",
+    "typescript-transform-extensions": "^1.0.1",
     "vite": "^4.0.3",
     "vitest": "^0.25.8"
-  }
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "svelte": "./dist/index.js",
+  "types": "./dist/index.d.ts"
 }

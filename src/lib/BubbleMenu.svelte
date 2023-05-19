@@ -8,7 +8,7 @@
   export let tippyOptions: BubbleMenuPluginProps['tippyOptions'] = {};
   export let pluginKey: BubbleMenuPluginProps['pluginKey'] = 'SvelteTiptapBubbleMenu';
   export let shouldShow: BubbleMenuPluginProps['shouldShow'] = null;
-  export let dela
+  export let delay: BubbleMenuPluginProps['delay'] = 250;
   let element: HTMLElement;
 
   if (!editor) {

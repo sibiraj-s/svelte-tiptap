@@ -8,8 +8,6 @@
 [![Monthly Downloads](https://badgen.net/npm/dm/svelte-tiptap)](https://www.npmjs.com/package/svelte-tiptap)
 [![License](https://badgen.net/npm/license/svelte-tiptap)](https://github.com/sibiraj-s/svelte-tiptap/blob/master/LICENSE)
 
-[demo/repl](https://svelte.dev/repl/fa178c3b141a4c52a2d74eecb2279c4b)
-
 ## Installation
 
 ```bash

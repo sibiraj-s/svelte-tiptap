@@ -11,7 +11,13 @@
     "strict": true,
     "noImplicitAny": true,
     "noImplicitOverride": true,
-    "target": "ES2021" // ES2022 or later breaks SvelteNodeViewRenderer
+    "target": "ES2021", // ES2022 or later breaks SvelteNodeViewRenderer
+    "plugins": [
+      {
+        "transform": "typescript-transform-extensions", // workaround for https://github.com/sveltejs/kit/issues/2040
+        "extensions": { ".ts": ".js" }
+      }
+    ]
   }
   // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
   //

@@ -1,15 +1,11 @@
 import { sveltekit } from '@sveltejs/kit/vite';
-import type { UserConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 
-const config: UserConfig = {
+export default defineConfig({
   plugins: [sveltekit()],
   test: {
     environment: 'happy-dom',
-    include: [
-      'tests/**/*.{test,spec}.{js,ts}',
-    ],
+    include: ['tests/**/*.{test,spec}.{js,ts}'],
     setupFiles: ['tests/setup.ts'],
   },
-};
-
-export default config;
+});

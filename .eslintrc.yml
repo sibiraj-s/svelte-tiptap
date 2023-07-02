@@ -2,7 +2,12 @@ root: true
 
 extends:
   - pegasus
+  - plugin:@typescript-eslint/recommended
+  - plugin:svelte/recommended
+  - prettier
 
+parserOptions:
+  extraFileExtensions: ['.svelte']
 overrides:
   - files:
       - '*.svelte'

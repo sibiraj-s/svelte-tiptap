@@ -13,7 +13,13 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
-## v1.o.0 (2023-07-02)
+## v1.1.0 (2023-07-02)
+
+#### Features
+
+- allow contents to be rendered inside EditorContent via slot ([e954389](https://github.com/sibiraj-s/svelte-tiptap/commit/e954389))
+
+## v1.0.0 (2023-07-02)
 
 #### Breaking Changes
 

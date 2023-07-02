@@ -45,3 +45,4 @@
 </script>
 
 <div bind:this={element} />
+<slot />

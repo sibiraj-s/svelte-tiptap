@@ -51,20 +51,29 @@
         class={cx('border border-black rounded px-2 hover:bg-black hover:text-white', {
           'bg-black text-white': isActive('heading', { level: 1 }),
         })}
-        on:click={toggleHeading(1)}>h1</button
+        type="button"
+        on:click={toggleHeading(1)}
       >
+        h1
+      </button>
       <button
         class={cx('border border-black rounded px-2 hover:bg-black hover:text-white', {
           'bg-black text-white': isActive('bold'),
         })}
-        on:click={toggleBold}>bold</button
+        type="button"
+        on:click={toggleBold}
       >
+        bold
+      </button>
       <button
         class={cx('border border-black rounded px-2 hover:bg-black hover:text-white', {
           'bg-black text-white': isActive('italic'),
         })}
-        on:click={toggleItalic}>italic</button
+        type="button"
+        on:click={toggleItalic}
       >
+        italic
+      </button>
     </div>
   </FloatingMenu>
 {/if}

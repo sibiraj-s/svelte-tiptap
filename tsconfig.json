@@ -9,12 +9,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "noImplicitAny": true,
-    "noImplicitOverride": true,
+    "moduleResolution": "Bundler",
     "target": "ES2021" // ES2022 or later breaks SvelteNodeViewRenderer
   }
-  // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
-  //
-  // If you want to overwrite includes/excludes, make sure to copy over the relevant includes/excludes
-  // from the referenced tsconfig.json - TypeScript does not merge them in
 }

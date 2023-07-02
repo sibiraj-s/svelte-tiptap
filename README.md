@@ -200,17 +200,7 @@ const handleClick = () => {
 
 ### Dragging
 
-To make your node views draggable, set `draggable: true` in the extension and add `draggable` action to the DOM element inside the component that should function as the drag handle.
-
-```svelte
-<script lang="ts">
-  import { NodeViewWrapper, draggable } from 'svelte-tiptap';
-</script>
-
-<NodeViewWrapper action={draggable} />
-<!-- OR -->
-<div use:draggable />
-```
+To make your node views draggable, set `draggable: true` in the extension and add `data-drag-handle` to the DOM element that should function as the drag handle.
 
 ### Adding a content editable
 
@@ -218,14 +208,14 @@ There is another action called `editable` which helps you adding editable conten
 
 ```svelte
 <script lang="ts">
-  import { NodeViewWrapper, editable } from 'svelte-tiptap';
+  import { NodeViewWrapper, NodeViewContent } from 'svelte-tiptap';
 </script>
 
 <NodeViewWrapper class="svelte-component">
-  <span class="label">Svelte Editable Component</span>
+  <span class="label" contenteditable="false">Svelte Editable Component</span>
 
   <!-- Content is inserted here -->
-  <p use:editable class="content editable" />
+  <NodeViewContent />
 </NodeViewWrapper>
 ```
 

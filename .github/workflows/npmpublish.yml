@@ -7,12 +7,14 @@ on:
   push:
     tags: v*
 
-permissions:
-  contents: read
-
 jobs:
   build-publish:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -22,9 +24,9 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm run build
+      - run: npm run package
 
       - name: Publish to NPM
-        run: npm publish package/
+        run: npm publish --provenance
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}

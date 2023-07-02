@@ -1,18 +1,26 @@
-import { NodeView, Editor } from '@tiptap/core';
+import { NodeView, Editor, type DecorationWithType } from '@tiptap/core';
 import type { NodeViewRenderer, NodeViewProps, NodeViewRendererOptions } from '@tiptap/core';
-import type { Decoration } from 'prosemirror-view';
-import type { Node as ProseMirrorNode } from 'prosemirror-model';
+import type { Decoration } from '@tiptap/pm/view';
+import type { Node as ProseMirrorNode } from '@tiptap/pm/model';
 import type { SvelteComponent } from 'svelte';
 
 import SvelteRenderer from './SvelteRenderer';
 import { TIPTAP_NODE_VIEW } from './context';
 
+interface RendererUpdateProps {
+  oldNode: ProseMirrorNode;
+  oldDecorations: Decoration[];
+  newNode: ProseMirrorNode;
+  newDecorations: Decoration[];
+  updateProps: () => void;
+}
+
 export interface SvelteNodeViewRendererOptions extends NodeViewRendererOptions {
-  update: ((node: ProseMirrorNode, decorations: Decoration[]) => boolean) | null;
+  update: ((props: RendererUpdateProps) => boolean) | null;
   as?: string;
 }
 
-type SvelteComponentRaw = typeof SvelteComponent;
+type SvelteComponentRaw = typeof SvelteComponent<any>;
 
 class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeViewRendererOptions> {
   renderer!: SvelteRenderer;
@@ -33,9 +41,7 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
       deleteNode: () => this.deleteNode(),
     };
 
-    this.contentDOMElement = this.node.isLeaf
-      ? null
-      : document.createElement(this.node.isInline ? 'span' : 'div');
+    this.contentDOMElement = this.node.isLeaf ? null : document.createElement(this.node.isInline ? 'span' : 'div');
 
     if (this.contentDOMElement) {
       // For some reason the whiteSpace prop is not inherited properly in Chrome and Safari
@@ -62,6 +68,16 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
     this.renderer = new SvelteRenderer(svelteComponent, {
       element: target,
     });
+
+    this.appendContendDom();
+  }
+
+  private appendContendDom() {
+    const contentElement = this.dom.querySelector('[data-node-view-content]');
+
+    if (this.contentDOMElement && contentElement && !contentElement.contains(this.contentDOMElement)) {
+      contentElement.appendChild(this.contentDOMElement);
+    }
   }
 
   override get dom() {
@@ -77,22 +93,28 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
       return null;
     }
 
-    this.maybeMoveContentDOM();
-
     return this.contentDOMElement;
   }
 
-  maybeMoveContentDOM(): void {
-    const contentElement = this.dom.querySelector('[data-node-view-content]');
+  update(node: ProseMirrorNode, decorations: DecorationWithType[]): boolean {
+    const updateProps = () => {
+      this.renderer.updateProps({ node, decorations });
+    };
 
-    if (this.contentDOMElement && contentElement && !contentElement.contains(this.contentDOMElement)) {
-      contentElement.appendChild(this.contentDOMElement);
-    }
-  }
-
-  update(node: ProseMirrorNode, decorations: Decoration[]): boolean {
     if (typeof this.options.update === 'function') {
-      return this.options.update(node, decorations);
+      const oldNode = this.node;
+      const oldDecorations = this.decorations;
+
+      this.node = node;
+      this.decorations = decorations;
+
+      return this.options.update({
+        oldNode,
+        oldDecorations,
+        newNode: node,
+        newDecorations: decorations,
+        updateProps: () => updateProps(),
+      });
     }
 
     if (node.type !== this.node.type) {
@@ -105,8 +127,7 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
 
     this.node = node;
     this.decorations = decorations;
-    this.renderer.updateProps({ node, decorations });
-    this.maybeMoveContentDOM();
+    updateProps();
 
     return true;
   }
@@ -127,7 +148,7 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
 
 const SvelteNodeViewRenderer = (
   component: SvelteComponentRaw,
-  options?: Partial<SvelteNodeViewRendererOptions>,
+  options?: Partial<SvelteNodeViewRendererOptions>
 ): NodeViewRenderer => {
   return (props): SvelteNodeView => new SvelteNodeView(component, props, options);
 };

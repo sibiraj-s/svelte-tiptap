@@ -219,6 +219,10 @@ There is another action called `editable` which helps you adding editable conten
 </NodeViewWrapper>
 ```
 
+The NodeViewWrapper and NodeViewContent components render a `<div>` HTML tag (`<span>` for inline nodes),
+but you can change that. For example `<NodeViewContent as="p">` should render a paragraph.
+One limitation though: That tag must not change during runtime.
+
 Refer: https://www.tiptap.dev/guide/node-views/react/#adding-a-content-editable
 
 ## Contributing

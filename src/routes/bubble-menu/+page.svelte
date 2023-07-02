@@ -4,6 +4,7 @@
   import StarterKit from '@tiptap/starter-kit';
   import cx from 'classnames';
   import { Editor, EditorContent, BubbleMenu, createEditor } from '$lib';
+  import { type } from 'os';
 
   let editor: Readable<Editor>;
 
@@ -46,14 +47,20 @@
         class={cx('px-2 bg-black text-white/90 hover:text-white', {
           '!text-white': isActive('bold'),
         })}
-        on:click={toggleBold}>bold</button
+        type="button"
+        on:click={toggleBold}
       >
+        bold
+      </button>
       <button
         class={cx('px-2 bg-black text-white/90 hover:text-white', {
           '!text-white': isActive('italic'),
         })}
-        on:click={toggleItalic}>italic</button
+        type="button"
+        on:click={toggleItalic}
       >
+        italic
+      </button>
     </div>
   </BubbleMenu>
 {/if}

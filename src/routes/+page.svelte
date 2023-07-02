@@ -57,6 +57,7 @@
 {#if editor}
   <div class="border-black border-2 border-b-0 rounded-t-md p-2 flex">
     <button
+      type="button"
       class={cx('hover:bg-black hover:text-white w-7 h-7 rounded', {
         'bg-black text-white': isActive('heading', { level: 1 }),
       })}
@@ -65,6 +66,7 @@
       H1
     </button>
     <button
+      type="button"
       class={cx('hover:bg-black hover:text-white w-7 h-7 rounded ml-1', {
         'bg-black text-white': isActive('heading', { level: 2 }),
       })}
@@ -73,6 +75,7 @@
       H2
     </button>
     <button
+      type="button"
       class={cx('hover:bg-black hover:text-white w-7 h-7 rounded ml-1', {
         'bg-black text-white': isActive('bold'),
       })}
@@ -81,6 +84,7 @@
       B
     </button>
     <button
+      type="button"
       class={cx('hover:bg-black hover:text-white w-7 h-7 rounded ml-1', {
         'bg-black text-white': isActive('italic'),
       })}
@@ -89,6 +93,7 @@
       I
     </button>
     <button
+      type="button"
       class={cx('hover:bg-black hover:text-white w-7 h-7 rounded ml-1', {
         'bg-black text-white': isActive('paragraph'),
       })}

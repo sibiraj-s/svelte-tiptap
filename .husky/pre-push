@@ -3,3 +3,6 @@
 
 npm run build
 npm run test -- --run
+
+echo "\npublint:"
+npx --no publint

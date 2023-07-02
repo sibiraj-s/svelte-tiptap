@@ -24,6 +24,10 @@ All notable changes to this project will be documented in this file.
 
 - cleanup SvelteNodeViewRenderer implementation ([844d07a](https://github.com/sibiraj-s/svelte-tiptap/commit/844d07a))
 
+#### Features
+
+- Expose BubbleMenu delay ([2185c94](https://github.com/sibiraj-s/svelte-tiptap/commit/2185c94))
+
 #### Internal
 
 - add npm package provenance ([4065bde](https://github.com/sibiraj-s/svelte-tiptap/commit/4065bde))

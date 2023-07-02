@@ -4,7 +4,6 @@
   import StarterKit from '@tiptap/starter-kit';
   import cx from 'classnames';
   import { Editor, EditorContent, BubbleMenu, createEditor } from '$lib';
-  import { type } from 'os';
 
   let editor: Readable<Editor>;
 

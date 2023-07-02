@@ -13,6 +13,21 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v1.o.0 (2023-07-02)
+
+#### Breaking Changes
+
+- requires svelte 4 ([09730bf](https://github.com/sibiraj-s/svelte-tiptap/commit/09730bf))
+- requires tiptap v2 stable ([09730bf](https://github.com/sibiraj-s/svelte-tiptap/commit/09730bf))
+
+#### Enhancements
+
+- cleanup SvelteNodeViewRenderer implementation ([844d07a](https://github.com/sibiraj-s/svelte-tiptap/commit/844d07a))
+
+#### Internal
+
+- add npm package provenance ([4065bde](https://github.com/sibiraj-s/svelte-tiptap/commit/4065bde))
+
 ## v0.7.0 (2022-12-15)
 
 #### Dependency Updates

@@ -2,16 +2,17 @@ root: true
 
 extends:
   - pegasus
-  - plugin:@typescript-eslint/recommended
-  - plugin:svelte/recommended
   - prettier
 
 parserOptions:
   extraFileExtensions: ['.svelte']
+  project: './tsconfig.eslint.json'
+
 overrides:
   - files:
       - '*.svelte'
     extends:
+      - pegasus/typescript-recommended
       - plugin:svelte/recommended
     parser: svelte-eslint-parser
     parserOptions:
@@ -19,7 +20,7 @@ overrides:
   - files:
       - '**/*.ts'
     extends:
-      - plugin:@typescript-eslint/recommended
+      - pegasus/typescript-recommended
   - files:
       - 'e2e/**/*'
     extends:

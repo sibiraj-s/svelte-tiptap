@@ -13,6 +13,13 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v1.1.1 (2023-07-12)
+
+#### Bug Fixes
+
+- fix invalid prop, rename `delay` to `updateDelay` ([646f655](https://github.com/sibiraj-s/svelte-tiptap/commit/646f655))
+- update SvelteComponent types ([94d54ce](https://github.com/sibiraj-s/svelte-tiptap/commit/94d54ce))
+
 ## v1.1.0 (2023-07-02)
 
 #### Features

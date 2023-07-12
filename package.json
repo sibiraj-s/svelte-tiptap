@@ -54,8 +54,8 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
     "@sveltejs/adapter-static": "^2.0.2",
-    "@sveltejs/kit": "^1.21.0",
-    "@sveltejs/package": "^2.1.0",
+    "@sveltejs/kit": "^1.22.2",
+    "@sveltejs/package": "^2.2.0",
     "@testing-library/svelte": "^4.0.3",
     "@tiptap/core": "^2.0.3",
     "@tiptap/extension-bubble-menu": "^2.0.3",

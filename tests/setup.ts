@@ -7,6 +7,7 @@ configure({
   testIdAttribute: 'id',
 });
 
+// @fixme
 // see https://github.com/testing-library/svelte-testing-library/issues/222
 vi.mock('svelte', async () => {
   const actual = (await vi.importActual('svelte')) as object;

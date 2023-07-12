@@ -1,3 +1,3 @@
-export type TiptapNodeViewContext = {
-  onDragStart: (event:DragEvent) => void
+export interface TiptapNodeViewContext {
+  onDragStart: (event: DragEvent) => void;
 }

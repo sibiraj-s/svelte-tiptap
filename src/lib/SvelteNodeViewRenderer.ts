@@ -20,7 +20,7 @@ export interface SvelteNodeViewRendererOptions extends NodeViewRendererOptions {
   as?: string;
 }
 
-type SvelteComponentRaw = typeof SvelteComponent<any>;
+type SvelteComponentRaw = typeof SvelteComponent<Partial<NodeViewProps>>;
 
 class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeViewRendererOptions> {
   renderer!: SvelteRenderer;

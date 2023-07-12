@@ -6,6 +6,7 @@
   import { Editor, EditorContent, FloatingMenu, createEditor } from '$lib';
 
   let editor: Readable<Editor>;
+  type Level = 1 | 2 | 3 | 4 | 5 | 6;
 
   onMount(() => {
     editor = createEditor({
@@ -21,7 +22,7 @@
     });
   });
 
-  const toggleHeading = (level: any) => {
+  const toggleHeading = (level: Level) => {
     return () => {
       $editor.chain().focus().toggleHeading({ level }).run();
     };

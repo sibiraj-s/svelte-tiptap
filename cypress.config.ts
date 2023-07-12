@@ -5,7 +5,7 @@ export default defineConfig({
     baseUrl: 'http://localhost:3009',
     video: false,
     screenshotOnRunFailure: false,
-    setupNodeEvents(on, config) { // eslint-disable-line  @typescript-eslint/no-unused-vars
+    setupNodeEvents(_on, _config) {
       // implement node event listeners here
     },
   },

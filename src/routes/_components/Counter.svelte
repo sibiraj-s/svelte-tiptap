@@ -7,7 +7,7 @@
   export let updateAttributes: NodeViewProps['updateAttributes'];
   export let selected: NodeViewProps['selected'] = false;
 
-  const handleClick = () => {
+  const handleClick = (): void => {
     updateAttributes({ count: node.attrs.count + 1 });
   };
 </script>

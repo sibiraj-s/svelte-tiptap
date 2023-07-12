@@ -7,7 +7,7 @@
 
   const init = async () => {
     await tick();
-    if (!editor || !editor.options.element) {
+    if (!editor?.options.element) {
       return;
     }
 

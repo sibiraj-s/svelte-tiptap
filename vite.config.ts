@@ -7,5 +7,13 @@ export default defineConfig({
     environment: 'happy-dom',
     include: ['tests/**/*.{test,spec}.{js,ts}'],
     setupFiles: ['tests/setup.ts'],
+    alias: [
+      {
+        // @fixme
+        // see https://github.com/testing-library/svelte-testing-library/issues/222
+        find: /^svelte$/,
+        replacement: 'svelte/internal',
+      },
+    ],
   },
 });

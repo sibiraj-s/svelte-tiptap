@@ -20,6 +20,8 @@ yarn add svelte-tiptap
 
 For any issues with the editor. You may need to open the issue on [tiptap's repository](https://github.com/ueberdosis/tiptap/issues)
 
+You can find some [examples for the editor here](./src/routes/)
+
 ## Usage
 
 A Simple editor.

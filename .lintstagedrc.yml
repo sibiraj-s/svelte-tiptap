@@ -1,4 +1,4 @@
-'*.{js,ts,svelte}':
+'*.{js,cjs,ts,svelte}':
   - eslint --fix
   - prettier --write
 '*.{md,yml,json,html}': prettier --write

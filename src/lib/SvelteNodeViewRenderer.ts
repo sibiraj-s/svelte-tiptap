@@ -148,7 +148,7 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
 
 const SvelteNodeViewRenderer = (
   component: SvelteComponentRaw,
-  options?: Partial<SvelteNodeViewRendererOptions>
+  options?: Partial<SvelteNodeViewRendererOptions>,
 ): NodeViewRenderer => {
   return (props): SvelteNodeView => new SvelteNodeView(component, props, options);
 };

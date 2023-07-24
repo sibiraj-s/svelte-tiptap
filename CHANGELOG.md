@@ -13,6 +13,12 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v1.1.2 (2023-07-24)
+
+#### Bug Fixes
+
+- update nodeview selected prop with text selection ([fe9eefb](https://github.com/sibiraj-s/svelte-tiptap/commit/fe9eefb))
+
 ## v1.1.1 (2023-07-12)
 
 #### Bug Fixes

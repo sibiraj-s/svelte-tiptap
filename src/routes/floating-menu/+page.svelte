@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import type { Readable } from 'svelte/store';
   import StarterKit from '@tiptap/starter-kit';
-  import cx from 'classnames';
+  import cx from 'clsx';
   import { Editor, EditorContent, FloatingMenu, createEditor } from '$lib';
 
   let editor: Readable<Editor>;

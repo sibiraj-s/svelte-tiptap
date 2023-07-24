@@ -1,7 +1,6 @@
 <script lang="ts">
   import { NodeViewWrapper, NodeViewContent } from '$lib';
-  import cx from 'classnames';
-
+  import cx from 'clsx';
   import type { NodeViewProps } from '@tiptap/core';
 
   export let selected: NodeViewProps['selected'] = false;

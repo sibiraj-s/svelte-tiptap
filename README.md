@@ -136,7 +136,7 @@ export const SvelteCounterExtension = Node.create({
 ```svelte
 <script lang="ts">
   import type { NodeViewProps } from '@tiptap/core';
-  import cx from 'classnames';
+  import cx from 'clsx';
   import { NodeViewWrapper } from 'svelte-tiptap';
 
   export let node: NodeViewProps['node'];

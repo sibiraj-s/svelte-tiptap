@@ -59,6 +59,9 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
     const target = document.createElement(as);
     target.classList.add(`node-${this.node.type.name}`);
 
+    this.handleSelectionUpdate = this.handleSelectionUpdate.bind(this);
+    this.editor.on('selectionUpdate', this.handleSelectionUpdate);
+
     const svelteComponent: SvelteComponent = new Component({
       target,
       props,
@@ -94,6 +97,16 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
     }
 
     return this.contentDOMElement;
+  }
+
+  handleSelectionUpdate() {
+    const { from, to } = this.editor.state.selection;
+
+    if (from <= this.getPos() && to >= this.getPos() + this.node.nodeSize) {
+      this.selectNode();
+    } else {
+      this.deselectNode();
+    }
   }
 
   update(node: ProseMirrorNode, decorations: DecorationWithType[]): boolean {
@@ -142,6 +155,7 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
 
   destroy(): void {
     this.renderer.destroy();
+    this.editor.off('selectionUpdate', this.handleSelectionUpdate);
     this.contentDOMElement = null;
   }
 }

@@ -36,6 +36,7 @@ export const SvelteEditableExtension = Node.create({
   name: 'SvelteEditableComponent',
   group: 'block',
   content: 'inline*',
+  draggable: true,
 
   parseHTML() {
     return [{ tag: 'svelte-editable-component' }];

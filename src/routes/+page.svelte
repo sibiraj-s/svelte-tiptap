@@ -46,6 +46,39 @@
   };
 
   $: isActive = (name: string, attrs = {}) => $editor.isActive(name, attrs);
+
+  $: menuItems = [
+    {
+      name: 'heading-1',
+      command: toggleHeading(1),
+      content: 'H1',
+      active: () => isActive('heading', { level: 1 }),
+    },
+    {
+      name: 'heading-2',
+      command: toggleHeading(2),
+      content: 'H2',
+      active: () => isActive('heading', { level: 2 }),
+    },
+    {
+      name: 'bold',
+      command: toggleBold,
+      content: 'B',
+      active: () => isActive('bold'),
+    },
+    {
+      name: 'italic',
+      command: toggleItalic,
+      content: 'I',
+      active: () => isActive('italic'),
+    },
+    {
+      name: 'paragraph',
+      command: setParagraph,
+      content: 'P',
+      active: () => isActive('paragraph'),
+    },
+  ];
 </script>
 
 <svelte:head>
@@ -55,52 +88,18 @@
 <h1 class="mb-2">Editor with Nodeview Renderer</h1>
 
 {#if editor}
-  <div class="border-black border-2 border-b-0 rounded-t-md p-2 flex">
-    <button
-      type="button"
-      class={cx('hover:bg-black hover:text-white w-7 h-7 rounded', {
-        'bg-black text-white': isActive('heading', { level: 1 }),
-      })}
-      on:click={toggleHeading(1)}
-    >
-      H1
-    </button>
-    <button
-      type="button"
-      class={cx('hover:bg-black hover:text-white w-7 h-7 rounded ml-1', {
-        'bg-black text-white': isActive('heading', { level: 2 }),
-      })}
-      on:click={toggleHeading(2)}
-    >
-      H2
-    </button>
-    <button
-      type="button"
-      class={cx('hover:bg-black hover:text-white w-7 h-7 rounded ml-1', {
-        'bg-black text-white': isActive('bold'),
-      })}
-      on:click={toggleBold}
-    >
-      B
-    </button>
-    <button
-      type="button"
-      class={cx('hover:bg-black hover:text-white w-7 h-7 rounded ml-1', {
-        'bg-black text-white': isActive('italic'),
-      })}
-      on:click={toggleItalic}
-    >
-      I
-    </button>
-    <button
-      type="button"
-      class={cx('hover:bg-black hover:text-white w-7 h-7 rounded ml-1', {
-        'bg-black text-white': isActive('paragraph'),
-      })}
-      on:click={setParagraph}
-    >
-      P
-    </button>
+  <div class="border-black border-2 border-b-0 rounded-t-md p-2 flex gap-1">
+    {#each menuItems as item (item.name)}
+      <button
+        type="button"
+        class={cx('hover:bg-black hover:text-white w-7 h-7 rounded', {
+          'bg-black text-white': item.active(),
+        })}
+        on:click={item.command}
+      >
+        {item.content}
+      </button>
+    {/each}
   </div>
 {/if}
 

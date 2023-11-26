@@ -16,7 +16,7 @@
       `,
       editorProps: {
         attributes: {
-          class: 'border-2 border-black rounded-md p-3 outline-none ',
+          class: 'border-2 border-black rounded-md p-3 outline-none',
         },
       },
     });
@@ -43,7 +43,7 @@
   <title>Floating Menu | Tiptap Svelte</title>
 </svelte:head>
 
-<h1 class="mb-2">Editor with Floating Menu</h1>
+<h1 class="mb-2 font-bold">Editor with Floating Menu</h1>
 
 {#if editor}
   <FloatingMenu editor={$editor}>

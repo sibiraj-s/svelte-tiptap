@@ -16,7 +16,7 @@
       `,
       editorProps: {
         attributes: {
-          class: 'border-2 border-black rounded-md p-3 outline-none ',
+          class: 'border-2 border-black rounded-md p-3 outline-none',
         },
       },
     });
@@ -37,7 +37,7 @@
   <title>Bubble Menu | Tiptap Svelte</title>
 </svelte:head>
 
-<h1 class="mb-2">Editor with Bubble Menu</h1>
+<h1 class="mb-2 font-bold">Editor with Bubble Menu</h1>
 
 {#if editor}
   <BubbleMenu editor={$editor}>

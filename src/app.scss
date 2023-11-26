@@ -2,16 +2,26 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
 .ProseMirror {
   p {
     @apply mb-2;
   }
 
+  h1,h2 {
+    @apply font-bold;
+  }
+
   h1 {
-    @apply text-2xl;
+    @apply text-3xl;
   }
 
   h2 {
-    @apply text-xl;
+    @apply text-2xl;
   }
 }

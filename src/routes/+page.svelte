@@ -21,7 +21,7 @@
       `,
       editorProps: {
         attributes: {
-          class: 'border-2 border-black rounded-b-md p-3 outline-none ',
+          class: 'border-2 border-black rounded-b-md p-3 outline-none',
         },
       },
     });
@@ -85,7 +85,7 @@
   <title>Tiptap Svelte</title>
 </svelte:head>
 
-<h1 class="mb-2">Editor with Nodeview Renderer</h1>
+<h1 class="mb-2 font-bold">Editor with Nodeview Renderer</h1>
 
 {#if editor}
   <div class="border-black border-2 border-b-0 rounded-t-md p-2 flex gap-1">

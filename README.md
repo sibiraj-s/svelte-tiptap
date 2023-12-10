@@ -92,7 +92,7 @@ Refer: https://www.tiptap.dev/api/extensions/bubble-menu
 
 ## SvelteNodeViewRenderer
 
-This enables rendering Svelte Components as NodeViews.
+SvelteNodeViewRenderer enables rendering Svelte Components as NodeViews. The following is an example for creating a counter component
 
 ### Create a Node Extension
 
@@ -141,17 +141,16 @@ export const SvelteCounterExtension = Node.create({
 
   export let node: NodeViewProps['node'];
   export let updateAttributes: NodeViewProps['updateAttributes'];
-  export let selected: NodeViewProps['selected'] = false;
 
   const handleClick = () => {
     updateAttributes({ count: node.attrs.count + 1 });
   };
 </script>
 
-<NodeViewWrapper class={cx('svelte-component', { selected })}>
-  <span class="label">Svelte Component</span>
+<NodeViewWrapper>
+  <span>Svelte Component</span>
 
-  <div class="content">
+  <div>
     <button on:click={handleClick} type="button">
       This button has been clicked {node.attrs.count} times.
     </button>

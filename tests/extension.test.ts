@@ -48,7 +48,7 @@ it('should render the counter component', async () => {
   await fireEvent.click(wrapper);
   await act();
 
-  expect(wrapper.classList.contains('selected')).toBe(true);
+  expect(wrapper.dataset.selected).toBe('true');
 
   expect(getByText('Svelte Component')).toBeTruthy();
   expect(getByText('This button has been clicked 1 times.')).toBeTruthy();

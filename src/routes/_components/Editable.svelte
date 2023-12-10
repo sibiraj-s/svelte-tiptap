@@ -8,9 +8,9 @@
 
 <NodeViewWrapper
   id="svelte-component"
+  data-selected={selected}
   class={cx('bg-yellow-200/90 border-black border-2 px-4 pb-4 rounded-md flex flex-col my-4', {
     'border-green-500': selected,
-    selected,
   })}
   data-drag-handle=""
 >

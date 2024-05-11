@@ -8,9 +8,6 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "strict": true,
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "target": "ES2021", // ES2022 or later breaks SvelteNodeViewRenderer
-  },
+    "strict": true
+  }
 }

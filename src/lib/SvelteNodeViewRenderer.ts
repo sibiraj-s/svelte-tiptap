@@ -24,8 +24,7 @@ type SvelteComponentRaw = typeof SvelteComponent<Partial<NodeViewProps>>;
 
 class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeViewRendererOptions> {
   declare renderer: SvelteRenderer;
-
-  contentDOMElement!: HTMLElement | null;
+  declare contentDOMElement: HTMLElement | null;
 
   override mount(): void {
     const Component = this.component;

@@ -1,17 +1,9 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vitest/config';
+import { svelteTesting } from '@testing-library/svelte/vite';
 
 export default defineConfig({
-  plugins: [sveltekit()],
-  // @fixme
-  // see https://github.com/testing-library/svelte-testing-library/issues/222
-  resolve: {
-    ...(process.env.VITEST
-      ? {
-          conditions: ['default', 'module', 'import', 'browser'],
-        }
-      : null),
-  },
+  plugins: [sveltekit(), svelteTesting()],
   test: {
     environment: 'happy-dom',
     include: ['tests/**/*.{test,spec}.{js,ts}'],

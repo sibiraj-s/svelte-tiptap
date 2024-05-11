@@ -13,6 +13,12 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v1.1.3 (2024-05-11)
+
+#### Bug Fixes
+
+- fixed NodeViewRenderer compatibility with typescript target > 2021 ([426a002](https://github.com/sibiraj-s/svelte-tiptap/commit/426a002), [af9fa49](https://github.com/sibiraj-s/svelte-tiptap/commit/af9fa49))
+
 ## v1.1.2 (2023-07-24)
 
 #### Bug Fixes

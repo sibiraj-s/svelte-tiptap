@@ -1,28 +1,31 @@
-import type { SvelteComponent } from 'svelte';
+import { unmount } from 'svelte';
 import type { NodeViewProps } from '@tiptap/core';
 
 interface RendererOptions {
   element: HTMLElement;
+  reactiveProps: NodeViewProps;
 }
 
 class SvelteRenderer {
-  component: SvelteComponent;
+  component: Record<string, unknown>;
+  reactiveProps: NodeViewProps;
 
   dom: HTMLElement;
 
-  constructor(component: SvelteComponent, { element }: RendererOptions) {
+  constructor(component: Record<string, unknown>, { element, reactiveProps }: RendererOptions) {
     this.component = component;
+    this.reactiveProps = reactiveProps;
     this.dom = element;
 
     this.dom.classList.add('svelte-renderer');
   }
 
   updateProps(props: Partial<NodeViewProps>): void {
-    this.component.$set(props);
+    Object.assign(this.reactiveProps, props);
   }
 
   destroy(): void {
-    this.component.$destroy();
+    unmount(this.component);
   }
 }
 

@@ -2,7 +2,7 @@ import { NodeView, Editor, type DecorationWithType } from '@tiptap/core';
 import type { NodeViewRenderer, NodeViewProps, NodeViewRendererOptions } from '@tiptap/core';
 import type { Decoration } from '@tiptap/pm/view';
 import type { Node as ProseMirrorNode } from '@tiptap/pm/model';
-import type { SvelteComponent } from 'svelte';
+import { type Component, mount } from 'svelte';
 
 import SvelteRenderer from './SvelteRenderer';
 import { TIPTAP_NODE_VIEW } from './context';
@@ -20,16 +20,14 @@ export interface SvelteNodeViewRendererOptions extends NodeViewRendererOptions {
   as?: string;
 }
 
-type SvelteComponentRaw = typeof SvelteComponent<Partial<NodeViewProps>>;
-
-class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeViewRendererOptions> {
+class SvelteNodeView extends NodeView<Component<NodeViewProps>, Editor, SvelteNodeViewRendererOptions> {
   declare renderer: SvelteRenderer;
   declare contentDOMElement: HTMLElement | null;
 
   override mount(): void {
     const Component = this.component;
 
-    const props: NodeViewProps = {
+    const props = $state<NodeViewProps>({
       editor: this.editor,
       node: this.node,
       decorations: this.decorations,
@@ -38,7 +36,7 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
       getPos: () => this.getPos(),
       updateAttributes: (attributes = {}) => this.updateAttributes(attributes),
       deleteNode: () => this.deleteNode(),
-    };
+    });
 
     this.contentDOMElement = this.node.isLeaf ? null : document.createElement(this.node.isInline ? 'span' : 'div');
 
@@ -61,14 +59,11 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
     this.handleSelectionUpdate = this.handleSelectionUpdate.bind(this);
     this.editor.on('selectionUpdate', this.handleSelectionUpdate);
 
-    const svelteComponent: SvelteComponent = new Component({
-      target,
-      props,
-      context,
-    });
+    const svelteComponent = mount(Component, { target, props, context });
 
     this.renderer = new SvelteRenderer(svelteComponent, {
       element: target,
+      reactiveProps: props,
     });
 
     this.appendContendDom();
@@ -160,7 +155,7 @@ class SvelteNodeView extends NodeView<SvelteComponentRaw, Editor, SvelteNodeView
 }
 
 const SvelteNodeViewRenderer = (
-  component: SvelteComponentRaw,
+  component: Component<NodeViewProps>,
   options?: Partial<SvelteNodeViewRendererOptions>,
 ): NodeViewRenderer => {
   return (props): SvelteNodeView => new SvelteNodeView(component, props, options);

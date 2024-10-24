@@ -1,14 +1,29 @@
 <script lang="ts">
-  import { onDestroy, onMount } from 'svelte';
+  import { onMount, type Snippet } from 'svelte';
   import { BubbleMenuPlugin, type BubbleMenuPluginProps } from '@tiptap/extension-bubble-menu';
 
   import type { Editor } from './Editor';
 
-  export let editor: Editor;
-  export let tippyOptions: BubbleMenuPluginProps['tippyOptions'] = {};
-  export let pluginKey: BubbleMenuPluginProps['pluginKey'] = 'SvelteTiptapBubbleMenu';
-  export let shouldShow: BubbleMenuPluginProps['shouldShow'] = null;
-  export let updateDelay: BubbleMenuPluginProps['updateDelay'] = 250;
+  interface Props {
+    editor: Editor;
+    tippyOptions?: BubbleMenuPluginProps['tippyOptions'];
+    pluginKey?: BubbleMenuPluginProps['pluginKey'];
+    shouldShow?: BubbleMenuPluginProps['shouldShow'];
+    updateDelay?: BubbleMenuPluginProps['updateDelay'];
+    class?: string;
+    children?: Snippet;
+  }
+
+  let {
+    editor,
+    tippyOptions = {},
+    pluginKey = 'SvelteTiptapBubbleMenu',
+    shouldShow = null,
+    updateDelay = 250,
+    class: klass,
+    children,
+  }: Props = $props();
+
   let element: HTMLElement;
 
   if (!editor) {
@@ -26,13 +41,11 @@
     });
 
     editor.registerPlugin(plugin);
-  });
 
-  onDestroy(() => {
-    editor.unregisterPlugin(pluginKey);
+    return () => editor.unregisterPlugin(pluginKey);
   });
 </script>
 
-<div bind:this={element} class={$$props.class} style="visibility: hidden;">
-  <slot />
+<div bind:this={element} class={klass} style="visibility: hidden;">
+  {@render children?.()}
 </div>

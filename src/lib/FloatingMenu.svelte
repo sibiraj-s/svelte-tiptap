@@ -1,13 +1,26 @@
 <script lang="ts">
-  import { onDestroy, onMount } from 'svelte';
+  import { onMount, type Snippet } from 'svelte';
   import { FloatingMenuPlugin, type FloatingMenuPluginProps } from '@tiptap/extension-floating-menu';
 
   import type { Editor } from './Editor';
 
-  export let editor: Editor;
-  export let tippyOptions: FloatingMenuPluginProps['tippyOptions'] = {};
-  export let pluginKey: FloatingMenuPluginProps['pluginKey'] = 'SvelteTiptapFloatingMenu';
-  export let shouldShow: FloatingMenuPluginProps['shouldShow'] = null;
+  interface Props {
+    editor: Editor;
+    tippyOptions?: FloatingMenuPluginProps['tippyOptions'];
+    pluginKey?: FloatingMenuPluginProps['pluginKey'];
+    shouldShow?: FloatingMenuPluginProps['shouldShow'];
+    class?: string;
+    children: Snippet;
+  }
+
+  let {
+    editor,
+    tippyOptions = {},
+    pluginKey = 'SvelteTiptapFloatingMenu',
+    shouldShow = null,
+    class: klass,
+    children,
+  }: Props = $props();
   let element: HTMLElement;
 
   if (!editor) {
@@ -24,13 +37,11 @@
     });
 
     editor.registerPlugin(plugin);
-  });
 
-  onDestroy(() => {
-    editor.unregisterPlugin(pluginKey);
+    return () => editor.unregisterPlugin(pluginKey);
   });
 </script>
 
-<div bind:this={element} class={$$props.class} style="visibility: hidden;">
-  <slot />
+<div bind:this={element} class={klass} style="visibility: hidden;">
+  {@render children?.()}
 </div>

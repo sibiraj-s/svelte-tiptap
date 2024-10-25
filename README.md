@@ -1,6 +1,6 @@
 # svelte-tiptap
 
-> Svelte 4 & 5 components for tiptap v2
+> Svelte components for tiptap v2
 
 [![Tests](https://github.com/sibiraj-s/svelte-tiptap/actions/workflows/tests.yml/badge.svg)](https://github.com/sibiraj-s/svelte-tiptap/actions/workflows/tests.yml)
 [![NPM Version](https://badgen.net/npm/v/svelte-tiptap)](https://www.npmjs.com/package/svelte-tiptap)
@@ -8,20 +8,16 @@
 [![Monthly Downloads](https://badgen.net/npm/dm/svelte-tiptap)](https://www.npmjs.com/package/svelte-tiptap)
 [![License](https://badgen.net/npm/license/svelte-tiptap)](https://github.com/sibiraj-s/svelte-tiptap/blob/master/LICENSE)
 
+> [!IMPORTANT]
+> If you're still using **Svelte 4**, you'll need the Svelte 4 version of svelte-tiptap, installed by specifying `svelte-tiptap@1`.
+> See the full version 1 documentation [here](https://github.com/sibiraj-s/svelte-tiptap/tree/v1.1.3?tab=readme-ov-file#svelte-tiptap).
+
 ## Installation
 
 ```bash
 npm i svelte-tiptap
 # or
 yarn add svelte-tiptap
-```
-
-If you're still using Svelte 4, you can use version 1 instead:
-
-```bash
-npm i svelte-tiptap@1
-# or
-yarn add svelte-tiptap@1
 ```
 
 > [!NOTE]
@@ -148,7 +144,7 @@ export const SvelteCounterExtension = Node.create({
   import cx from 'clsx';
   import { NodeViewWrapper } from 'svelte-tiptap';
 
-  let { node, updateAttributes }: NodeViewProps = $props()
+  let { node, updateAttributes }: NodeViewProps = $props();
 
   const handleClick = () => {
     updateAttributes({ count: node.attrs.count + 1 });
@@ -197,7 +193,7 @@ Refer https://www.tiptap.dev/guide/node-views/react/#all-available-props for the
 ```ts
 import type { NodeViewProps } from '@tiptap/core';
 
-let { node, updateAttributes, /* ...other props as needed */ }: NodeViewProps = $props()
+let { node, updateAttributes /* ...other props as needed */ }: NodeViewProps = $props();
 
 // update attributes
 const handleClick = () => {

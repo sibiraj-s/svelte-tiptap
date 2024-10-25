@@ -1,6 +1,6 @@
 # svelte-tiptap
 
-> Svelte components for tiptap v2
+> Svelte 4 & 5 components for tiptap v2
 
 [![Tests](https://github.com/sibiraj-s/svelte-tiptap/actions/workflows/tests.yml/badge.svg)](https://github.com/sibiraj-s/svelte-tiptap/actions/workflows/tests.yml)
 [![NPM Version](https://badgen.net/npm/v/svelte-tiptap)](https://www.npmjs.com/package/svelte-tiptap)
@@ -14,6 +14,14 @@
 npm i svelte-tiptap
 # or
 yarn add svelte-tiptap
+```
+
+If you're still using Svelte 4, you can use version 1 instead:
+
+```bash
+npm i svelte-tiptap@1
+# or
+yarn add svelte-tiptap@1
 ```
 
 > [!NOTE]
@@ -34,7 +42,7 @@ A Simple editor.
   import { createEditor, Editor, EditorContent } from 'svelte-tiptap';
   import StarterKit from '@tiptap/starter-kit';
 
-  let editor: Readable<Editor>;
+  let editor = $state() as Readable<Editor>;
 
   onMount(() => {
     editor = createEditor({
@@ -140,8 +148,7 @@ export const SvelteCounterExtension = Node.create({
   import cx from 'clsx';
   import { NodeViewWrapper } from 'svelte-tiptap';
 
-  export let node: NodeViewProps['node'];
-  export let updateAttributes: NodeViewProps['updateAttributes'];
+  let { node, updateAttributes }: NodeViewProps = $props()
 
   const handleClick = () => {
     updateAttributes({ count: node.attrs.count + 1 });
@@ -152,7 +159,7 @@ export const SvelteCounterExtension = Node.create({
   <span>Svelte Component</span>
 
   <div>
-    <button on:click={handleClick} type="button">
+    <button onclick={handleClick} type="button">
       This button has been clicked {node.attrs.count} times.
     </button>
   </div>
@@ -169,7 +176,7 @@ import StarterKit from '@tiptap/starter-kit';
 
 import { SvelteCounterExtension } from './SvelteExtension';
 
-let editor: Readable<Editor>;
+let editor = $state() as Readable<Editor>;
 
 onMount(() => {
   editor = createEditor({
@@ -190,9 +197,7 @@ Refer https://www.tiptap.dev/guide/node-views/react/#all-available-props for the
 ```ts
 import type { NodeViewProps } from '@tiptap/core';
 
-export let node: NodeViewProps['node'];
-export let updateAttributes: NodeViewProps['updateAttributes'];
-// ...define other props as needed.
+let { node, updateAttributes, /* ...other props as needed */ }: NodeViewProps = $props()
 
 // update attributes
 const handleClick = () => {

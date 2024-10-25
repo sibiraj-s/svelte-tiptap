@@ -3,9 +3,7 @@
   import cx from 'clsx';
   import { NodeViewWrapper } from '$lib';
 
-  export let node: NodeViewProps['node'];
-  export let updateAttributes: NodeViewProps['updateAttributes'];
-  export let selected: NodeViewProps['selected'] = false;
+  let { node, updateAttributes, selected }: NodeViewProps = $props();
 
   const handleClick = (): void => {
     updateAttributes({ count: node.attrs.count + 1 });
@@ -28,7 +26,7 @@
     <button
       id="counter-button"
       class="bg-gray-200 border-black border rounded px-1"
-      on:click={handleClick}
+      onclick={handleClick}
       type="button"
     >
       This button has been clicked {node.attrs.count} times.

@@ -1,3 +1,5 @@
+<svelte:options runes={true} />
+
 <script lang="ts">
   import { onMount } from 'svelte';
   import type { Readable } from 'svelte/store';
@@ -5,7 +7,7 @@
   import cx from 'clsx';
   import { Editor, EditorContent, FloatingMenu, createEditor } from '$lib';
 
-  let editor: Readable<Editor>;
+  let editor = $state() as Readable<Editor>;
   type Level = 1 | 2 | 3 | 4 | 5 | 6;
 
   onMount(() => {
@@ -36,7 +38,7 @@
     $editor.chain().focus().toggleItalic().run();
   };
 
-  $: isActive = (name: string, attrs = {}) => $editor.isActive(name, attrs);
+  const isActive = (name: string, attrs = {}) => $editor.isActive(name, attrs);
 </script>
 
 <svelte:head>
@@ -53,7 +55,7 @@
           'bg-black text-white': isActive('heading', { level: 1 }),
         })}
         type="button"
-        on:click={toggleHeading(1)}
+        onclick={toggleHeading(1)}
       >
         h1
       </button>
@@ -62,7 +64,7 @@
           'bg-black text-white': isActive('bold'),
         })}
         type="button"
-        on:click={toggleBold}
+        onclick={toggleBold}
       >
         bold
       </button>
@@ -71,7 +73,7 @@
           'bg-black text-white': isActive('italic'),
         })}
         type="button"
-        on:click={toggleItalic}
+        onclick={toggleItalic}
       >
         italic
       </button>

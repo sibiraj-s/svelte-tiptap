@@ -9,6 +9,10 @@
 
   const init = async () => {
     await tick();
+    if (!element) {
+      return;
+    }
+
     if (!editor?.options.element) {
       return;
     }

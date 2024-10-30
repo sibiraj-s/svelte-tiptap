@@ -7,7 +7,7 @@
 
   import { SvelteCounterExtension, SvelteEditableExtension } from './_components/SvelteExtension';
 
-  let editor: Readable<Editor>;
+  let editor = $state() as Readable<Editor>;
 
   onMount(() => {
     editor = createEditor({
@@ -45,9 +45,9 @@
     $editor.chain().focus().setParagraph().run();
   };
 
-  $: isActive = (name: string, attrs = {}) => $editor.isActive(name, attrs);
+  const isActive = (name: string, attrs = {}) => $editor.isActive(name, attrs);
 
-  $: menuItems = [
+  const menuItems = $derived([
     {
       name: 'heading-1',
       command: toggleHeading(1),
@@ -78,7 +78,7 @@
       content: 'P',
       active: () => isActive('paragraph'),
     },
-  ];
+  ]);
 </script>
 
 <svelte:head>
@@ -95,7 +95,7 @@
         class={cx('hover:bg-black hover:text-white w-7 h-7 rounded', {
           'bg-black text-white': item.active(),
         })}
-        on:click={item.command}
+        onclick={item.command}
       >
         {item.content}
       </button>

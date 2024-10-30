@@ -1,9 +1,11 @@
 <script lang="ts">
-  import { beforeUpdate, onDestroy, onMount, tick } from 'svelte';
-  import type { Editor } from './Editor';
+  import { onDestroy, onMount, tick } from 'svelte';
+  import type { ComponentInputProps } from './types';
 
+  type Props = ComponentInputProps<{}>;
+
+  const { editor, children }: Props = $props();
   let element: HTMLElement;
-  export let editor: Editor;
 
   const init = async () => {
     await tick();
@@ -26,7 +28,6 @@
   };
 
   onMount(init);
-  beforeUpdate(init);
 
   onDestroy(() => {
     if (!editor) {
@@ -48,5 +49,8 @@
   });
 </script>
 
-<div bind:this={element} />
-<slot />
+<div bind:this={element}></div>
+
+{#if children}
+  {@render children()}
+{/if}

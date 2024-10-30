@@ -3,7 +3,7 @@
   import cx from 'clsx';
   import type { NodeViewProps } from '@tiptap/core';
 
-  export let selected: NodeViewProps['selected'] = false;
+  let { selected = false }: NodeViewProps = $props();
 </script>
 
 <NodeViewWrapper

@@ -3,17 +3,21 @@
 > Svelte components for tiptap v2
 
 [![Tests](https://github.com/sibiraj-s/svelte-tiptap/actions/workflows/tests.yml/badge.svg)](https://github.com/sibiraj-s/svelte-tiptap/actions/workflows/tests.yml)
-[![NPM Version](https://badgen.net/npm/v/svelte-tiptap)](https://www.npmjs.com/package/svelte-tiptap)
+[![NPM Version](https://badgen.net/npm/v/svelte-tiptap/1)](https://www.npmjs.com/package/svelte-tiptap)
 [![Total Downloads](https://badgen.net/npm/dt/svelte-tiptap)](https://www.npmjs.com/package/svelte-tiptap)
 [![Monthly Downloads](https://badgen.net/npm/dm/svelte-tiptap)](https://www.npmjs.com/package/svelte-tiptap)
 [![License](https://badgen.net/npm/license/svelte-tiptap)](https://github.com/sibiraj-s/svelte-tiptap/blob/master/LICENSE)
 
+> [!IMPORTANT]
+> This is the documentation for **svelte-tiptap v1**, which is compatible with Svelte 4.
+> If you're using Svelte 5, check out the latest version [here](https://github.com/sibiraj-s/svelte-tiptap/?tab=readme-ov-file#svelte-tiptap).
+
 ## Installation
 
 ```bash
-npm i svelte-tiptap
+npm i svelte-tiptap@1
 # or
-yarn add svelte-tiptap
+yarn add svelte-tiptap@1
 ```
 
 > [!NOTE]

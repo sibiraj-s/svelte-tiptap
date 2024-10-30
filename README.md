@@ -11,9 +11,9 @@
 ## Installation
 
 ```bash
-npm i svelte-tiptap@1
+npm i svelte-tiptap
 # or
-yarn add svelte-tiptap@1
+yarn add svelte-tiptap
 ```
 
 > [!NOTE]

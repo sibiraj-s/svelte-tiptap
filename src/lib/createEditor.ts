@@ -6,7 +6,7 @@ import { Editor } from './Editor';
 const createEditor = (options: Partial<EditorOptions>): Readable<Editor> => {
   const editor = new Editor(options);
 
-  const { subscribe } = readable(editor, (set) => {
+  return readable(editor, (set) => {
     editor.on('transaction', () => {
       set(editor);
     });
@@ -15,8 +15,6 @@ const createEditor = (options: Partial<EditorOptions>): Readable<Editor> => {
       editor.destroy();
     };
   });
-
-  return { subscribe };
 };
 
 export default createEditor;

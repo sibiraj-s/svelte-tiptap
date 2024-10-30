@@ -193,7 +193,7 @@ Refer https://www.tiptap.dev/guide/node-views/react/#all-available-props for the
 ```ts
 import type { NodeViewProps } from '@tiptap/core';
 
-let { node, updateAttributes /* ...other props as needed */ }: NodeViewProps = $props();
+let { node, updateAttributes }: NodeViewProps = $props();
 
 // update attributes
 const handleClick = () => {

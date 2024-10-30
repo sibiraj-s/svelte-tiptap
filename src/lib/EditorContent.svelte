@@ -1,11 +1,8 @@
 <script lang="ts">
-  import { onDestroy, onMount, type Snippet, tick } from 'svelte';
-  import type { Editor } from './Editor';
+  import { onDestroy, onMount, tick } from 'svelte';
+  import type { ComponentInputProps } from './types';
 
-  interface Props {
-    editor: Editor;
-    children?: Snippet;
-  }
+  type Props = ComponentInputProps<{}>;
 
   const { editor, children }: Props = $props();
   let element: HTMLElement;
@@ -27,14 +24,6 @@
   };
 
   onMount(init);
-  $effect.pre(() => {
-    // Subscribe to the editor state, this needs to be done as async dependencies aren't tracked
-    // And init() is an async function
-    if (editor) {
-      // empty
-    }
-    init();
-  });
 
   onDestroy(() => {
     if (!editor) {
@@ -57,4 +46,7 @@
 </script>
 
 <div bind:this={element}></div>
-{@render children?.()}
+
+{#if children}
+  {@render children()}
+{/if}

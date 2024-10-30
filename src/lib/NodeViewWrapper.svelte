@@ -18,13 +18,10 @@
     await tick();
     element.style.whiteSpace = 'normal';
   });
-
-  function ondragstart(this: EventTarget, event: DragEvent) {
-    onDragStart?.call(this, event);
-    rest.ondragstart?.call(this, event);
-  }
 </script>
 
-<svelte:element this={as} bind:this={element} data-node-view-wrapper="" role="none" {...rest} {ondragstart}>
-  {@render children?.()}
+<svelte:element this={as} bind:this={element} data-node-view-wrapper="" role="none" {...rest} ondragstart={onDragStart}>
+  {#if children}
+    {@render children()}
+  {/if}
 </svelte:element>

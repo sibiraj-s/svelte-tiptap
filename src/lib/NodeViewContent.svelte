@@ -17,5 +17,7 @@
 </script>
 
 <svelte:element this={as} bind:this={element} data-node-view-content {...rest}>
-  {@render children?.()}
+  {#if children}
+    {@render children()}
+  {/if}
 </svelte:element>

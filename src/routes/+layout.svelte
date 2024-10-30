@@ -1,7 +1,8 @@
 <script lang="ts">
   import { base } from '$app/paths';
-  import '../app.scss';
   import type { Snippet } from 'svelte';
+
+  import '../app.scss';
 
   interface Props {
     children?: Snippet;
@@ -16,5 +17,7 @@
     <a href="{base}/floating-menu" class="text-blue-600 hover:underline">Floating Menu</a>
     <a href="{base}/bubble-menu" class="text-blue-600 hover:underline">Bubble Menu</a>
   </nav>
-  {@render children?.()}
+  {#if children}
+    {@render children()}
+  {/if}
 </main>

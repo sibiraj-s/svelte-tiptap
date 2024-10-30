@@ -1,31 +1,24 @@
 <script lang="ts">
-  import { onMount, type Snippet } from 'svelte';
+  import { onMount } from 'svelte';
   import { FloatingMenuPlugin, type FloatingMenuPluginProps } from '@tiptap/extension-floating-menu';
 
-  import type { Editor } from './Editor';
+  import type { ComponentInputProps } from './types';
+  import { invariant } from './utils';
 
-  interface Props {
-    editor: Editor;
-    tippyOptions?: FloatingMenuPluginProps['tippyOptions'];
-    pluginKey?: FloatingMenuPluginProps['pluginKey'];
-    shouldShow?: FloatingMenuPluginProps['shouldShow'];
-    class?: string;
-    children: Snippet;
-  }
+  type Props = ComponentInputProps<FloatingMenuPluginProps>;
 
-  let {
+  const {
     editor,
     tippyOptions = {},
     pluginKey = 'SvelteTiptapFloatingMenu',
     shouldShow = null,
-    class: klass,
+    class: className,
     children,
   }: Props = $props();
-  let element: HTMLElement;
 
-  if (!editor) {
-    throw new Error('Missing editor instance.');
-  }
+  invariant(editor, 'Missing editor instance.');
+
+  let element: HTMLElement;
 
   onMount(() => {
     const plugin = FloatingMenuPlugin({
@@ -42,6 +35,8 @@
   });
 </script>
 
-<div bind:this={element} class={klass} style="visibility: hidden;">
-  {@render children?.()}
+<div bind:this={element} class={className} style="visibility: hidden;">
+  {#if children}
+    {@render children()}
+  {/if}
 </div>

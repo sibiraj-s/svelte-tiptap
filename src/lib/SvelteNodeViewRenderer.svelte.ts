@@ -6,6 +6,7 @@ import { type Component, mount } from 'svelte';
 
 import SvelteRenderer from './SvelteRenderer';
 import { TIPTAP_NODE_VIEW } from './context';
+import { invariant } from './utils';
 
 interface RendererUpdateProps {
   oldNode: ProseMirrorNode;
@@ -63,7 +64,7 @@ class SvelteNodeView extends NodeView<Component<NodeViewProps>, Editor, SvelteNo
 
     this.renderer = new SvelteRenderer(svelteComponent, {
       element: target,
-      reactiveProps: props,
+      props,
     });
 
     this.appendContendDom();
@@ -78,9 +79,10 @@ class SvelteNodeView extends NodeView<Component<NodeViewProps>, Editor, SvelteNo
   }
 
   override get dom() {
-    if (!this.renderer.dom.firstElementChild?.hasAttribute('data-node-view-wrapper')) {
-      throw Error('Please use the NodeViewWrapper component for your node view.');
-    }
+    invariant(
+      this.renderer.dom.firstElementChild?.hasAttribute('data-node-view-wrapper'),
+      'Please use the NodeViewWrapper component for your node view.',
+    );
 
     return this.renderer.dom;
   }

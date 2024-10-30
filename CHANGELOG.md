@@ -13,6 +13,12 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v2.0.1 (2024-10-30)
+
+#### Bug Fixes
+
+- update README ([aee74fe](https://github.com/sibiraj-s/svelte-tiptap/commit/aee74fe))
+
 ## v2.0.0 (2024-10-30)
 
 #### Breaking Changes

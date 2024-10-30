@@ -8,10 +8,6 @@
 [![Monthly Downloads](https://badgen.net/npm/dm/svelte-tiptap)](https://www.npmjs.com/package/svelte-tiptap)
 [![License](https://badgen.net/npm/license/svelte-tiptap)](https://github.com/sibiraj-s/svelte-tiptap/blob/master/LICENSE)
 
-> [!NOTE]
-> This is the documentation for **svelte-tiptap v1**, which is compatible with Svelte 4.
-> If you're using Svelte 5, check out the latest version [here](https://github.com/sibiraj-s/svelte-tiptap/?tab=readme-ov-file#svelte-tiptap).
-
 ## Installation
 
 ```bash

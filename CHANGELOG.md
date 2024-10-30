@@ -13,6 +13,16 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v2.0.0 (2024-10-30)
+
+#### Breaking Changes
+
+- requires svelte 5 ([6490536](https://github.com/sibiraj-s/svelte-tiptap/commit/6490536))
+
+#### Bug Fixes
+
+- check element exists before mount ([a203650](https://github.com/sibiraj-s/svelte-tiptap/commit/a203650))
+
 ## v1.1.3 (2024-05-11)
 
 #### Bug Fixes

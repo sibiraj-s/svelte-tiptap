@@ -25,6 +25,12 @@ class SvelteRenderer {
     Object.assign(this.props, props);
   }
 
+  updateAttributes(attributes: Record<string, string>): void {
+    Object.keys(attributes).forEach((key) => {
+      this.dom.setAttribute(key, attributes[key]);
+    });
+  }
+
   destroy(): void {
     unmount(this.component);
   }

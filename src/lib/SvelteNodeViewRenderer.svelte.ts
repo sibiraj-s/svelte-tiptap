@@ -1,6 +1,6 @@
-import { NodeView, Editor } from '@tiptap/core';
+import { NodeView, Editor, getRenderedAttributes } from '@tiptap/core';
 import type { NodeViewRenderer, NodeViewProps, NodeViewRendererOptions, DecorationWithType } from '@tiptap/core';
-import type { Decoration } from '@tiptap/pm/view';
+import type { Decoration, DecorationSource } from '@tiptap/pm/view';
 import type { Node as ProseMirrorNode } from '@tiptap/pm/model';
 import { type Component, mount } from 'svelte';
 
@@ -10,15 +10,22 @@ import { invariant } from './utils';
 
 interface RendererUpdateProps {
   oldNode: ProseMirrorNode;
-  oldDecorations: Decoration[];
+  oldDecorations: readonly Decoration[];
+  oldInnerDecorations: DecorationSource;
   newNode: ProseMirrorNode;
-  newDecorations: Decoration[];
+  newDecorations: readonly Decoration[];
+  newInnerDecorations: DecorationSource;
   updateProps: () => void;
 }
+
+type AttrProps =
+  | Record<string, string>
+  | ((props: { node: ProseMirrorNode; HTMLAttributes: Record<string, any> }) => Record<string, string>);
 
 export interface SvelteNodeViewRendererOptions extends NodeViewRendererOptions {
   update: ((props: RendererUpdateProps) => boolean) | null;
   as?: string;
+  attrs?: AttrProps;
 }
 
 class SvelteNodeView extends NodeView<Component<NodeViewProps>, Editor, SvelteNodeViewRendererOptions> {
@@ -31,9 +38,12 @@ class SvelteNodeView extends NodeView<Component<NodeViewProps>, Editor, SvelteNo
     const props = $state<NodeViewProps>({
       editor: this.editor,
       node: this.node,
-      decorations: this.decorations,
+      decorations: this.decorations as DecorationWithType[],
+      innerDecorations: this.innerDecorations,
+      view: this.view,
       selected: false,
       extension: this.extension,
+      HTMLAttributes: this.HTMLAttributes,
       getPos: () => this.getPos(),
       updateAttributes: (attributes = {}) => this.updateAttributes(attributes),
       deleteNode: () => this.deleteNode(),
@@ -68,6 +78,7 @@ class SvelteNodeView extends NodeView<Component<NodeViewProps>, Editor, SvelteNo
     });
 
     this.appendContendDom();
+    this.updateElementAttributes();
   }
 
   private appendContendDom() {
@@ -97,32 +108,58 @@ class SvelteNodeView extends NodeView<Component<NodeViewProps>, Editor, SvelteNo
 
   handleSelectionUpdate() {
     const { from, to } = this.editor.state.selection;
+    const pos = this.getPos();
 
-    if (from <= this.getPos() && to >= this.getPos() + this.node.nodeSize) {
+    if (typeof pos !== 'number') {
+      return;
+    }
+
+    if (from <= pos && to >= pos + this.node.nodeSize) {
+      if (this.renderer.props.selected) {
+        return;
+      }
+
       this.selectNode();
     } else {
+      if (!this.renderer.props.selected) {
+        return;
+      }
+
       this.deselectNode();
     }
   }
 
-  update(node: ProseMirrorNode, decorations: DecorationWithType[]): boolean {
-    const updateProps = () => {
-      this.renderer.updateProps({ node, decorations });
+  update(node: ProseMirrorNode, decorations: readonly Decoration[], innerDecorations: DecorationSource): boolean {
+    const updateProps = (props: Partial<NodeViewProps>) => {
+      this.renderer.updateProps(props);
+
+      if (typeof this.options.attrs === 'function') {
+        this.updateElementAttributes();
+      }
     };
 
     if (typeof this.options.update === 'function') {
       const oldNode = this.node;
       const oldDecorations = this.decorations;
+      const oldInnerDecorations = this.innerDecorations;
 
       this.node = node;
       this.decorations = decorations;
+      this.innerDecorations = innerDecorations;
 
       return this.options.update({
         oldNode,
         oldDecorations,
+        oldInnerDecorations,
         newNode: node,
         newDecorations: decorations,
-        updateProps: () => updateProps(),
+        newInnerDecorations: innerDecorations,
+        updateProps: () =>
+          updateProps({
+            node,
+            decorations: decorations as DecorationWithType[],
+            innerDecorations,
+          }),
       });
     }
 
@@ -130,29 +167,55 @@ class SvelteNodeView extends NodeView<Component<NodeViewProps>, Editor, SvelteNo
       return false;
     }
 
-    if (node === this.node && this.decorations === decorations) {
+    if (node === this.node && this.decorations === decorations && this.innerDecorations === innerDecorations) {
       return true;
     }
 
     this.node = node;
     this.decorations = decorations;
-    updateProps();
+    this.innerDecorations = innerDecorations;
+
+    updateProps({
+      node,
+      decorations: decorations as DecorationWithType[],
+      innerDecorations,
+    });
 
     return true;
   }
 
   selectNode(): void {
     this.renderer.updateProps({ selected: true });
+    this.renderer.dom.classList.add('ProseMirror-selectednode');
   }
 
   deselectNode(): void {
     this.renderer.updateProps({ selected: false });
+    this.renderer.dom.classList.remove('ProseMirror-selectednode');
   }
 
   destroy(): void {
     this.renderer.destroy();
     this.editor.off('selectionUpdate', this.handleSelectionUpdate);
     this.contentDOMElement = null;
+  }
+
+  /**
+   * Update the attributes of the top-level element that holds the React component.
+   * Applying the attributes defined in the `attrs` option.
+   */
+  updateElementAttributes() {
+    if (this.options.attrs) {
+      let attrsObj: Record<string, string> = {};
+      if (typeof this.options.attrs === 'function') {
+        const extensionAttributes = this.editor.extensionManager.attributes;
+        const HTMLAttributes = getRenderedAttributes(this.node, extensionAttributes);
+        attrsObj = this.options.attrs({ node: this.node, HTMLAttributes });
+      } else {
+        attrsObj = this.options.attrs;
+      }
+      this.renderer.updateAttributes(attrsObj);
+    }
   }
 }
 

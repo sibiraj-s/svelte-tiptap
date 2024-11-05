@@ -2,6 +2,7 @@ import pegasus from 'eslint-config-pegasus';
 import svelte from 'eslint-plugin-svelte';
 import prettier from 'eslint-config-prettier';
 import tsParser from '@typescript-eslint/parser';
+import pluginCypress from 'eslint-plugin-cypress';
 
 import svelteConfig from './svelte.config.js';
 
@@ -46,6 +47,10 @@ const config = pegasus.tsConfig(
         ...svelteConfig,
       },
     },
+  },
+  {
+    files: ['e2e/**/*'],
+    extends: [pluginCypress.configs.recommended],
   },
 );
 

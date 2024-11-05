@@ -13,6 +13,12 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v2.0.3 (2024-11-05)
+
+#### Bug Fixes
+
+- fix types mismatch with tiptap ([3cc6cfb](https://github.com/sibiraj-s/svelte-tiptap/commit/3cc6cfb))
+
 ## v2.0.2 (2024-10-30)
 
 #### Bug Fixes

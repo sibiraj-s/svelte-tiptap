@@ -3,7 +3,7 @@
   import cx from 'clsx';
   import { NodeViewWrapper } from '$lib';
 
-  let { node, updateAttributes, selected }: NodeViewProps = $props();
+  const { node, updateAttributes, selected }: NodeViewProps = $props();
 
   const handleClick = (): void => {
     updateAttributes({ count: node.attrs.count + 1 });

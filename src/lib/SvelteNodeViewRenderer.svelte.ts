@@ -1,5 +1,5 @@
-import { NodeView, Editor, type DecorationWithType } from '@tiptap/core';
-import type { NodeViewRenderer, NodeViewProps, NodeViewRendererOptions } from '@tiptap/core';
+import { NodeView, Editor } from '@tiptap/core';
+import type { NodeViewRenderer, NodeViewProps, NodeViewRendererOptions, DecorationWithType } from '@tiptap/core';
 import type { Decoration } from '@tiptap/pm/view';
 import type { Node as ProseMirrorNode } from '@tiptap/pm/model';
 import { type Component, mount } from 'svelte';

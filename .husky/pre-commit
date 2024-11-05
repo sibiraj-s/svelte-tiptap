@@ -1,2 +1,2 @@
-node scripts/version-check.cjs
+node scripts/version-check.js
 npx --no lint-staged

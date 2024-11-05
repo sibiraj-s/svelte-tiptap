@@ -4,14 +4,22 @@
   import StarterKit from '@tiptap/starter-kit';
   import cx from 'clsx';
   import { Editor, EditorContent, createEditor } from '$lib';
+  import Placeholder from '@tiptap/extension-placeholder';
 
   import { SvelteCounterExtension, SvelteEditableExtension } from './_components/SvelteExtension';
+
+  const extensions = [
+    StarterKit,
+    SvelteCounterExtension,
+    SvelteEditableExtension,
+    Placeholder.configure({ placeholder: 'Writwe something...' }),
+  ];
 
   let editor = $state() as Readable<Editor>;
 
   onMount(() => {
     editor = createEditor({
-      extensions: [StarterKit, SvelteCounterExtension, SvelteEditableExtension],
+      extensions,
       content: `
         <p>This is still the text editor you're used to, but enriched with node views.</p>
         <svelte-counter-component count="0"></svelte-counter-component>

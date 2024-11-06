@@ -4,7 +4,7 @@
 
   type Props = ComponentInputProps<{}>;
 
-  const { editor, children }: Props = $props();
+  const { editor, children, class: classes }: Props = $props();
   let element: HTMLElement;
 
   const init = async () => {
@@ -49,7 +49,7 @@
   });
 </script>
 
-<div bind:this={element}></div>
+<div bind:this={element} class={classes}></div>
 
 {#if children}
   {@render children()}

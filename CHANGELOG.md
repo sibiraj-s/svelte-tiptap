@@ -13,6 +13,12 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v2.1.0 (2024-12-01)
+
+#### Features
+
+- support forwarding `class` prop to editor container ([902ed66](https://github.com/sibiraj-s/svelte-tiptap/commit/902ed66))
+
 ## v2.0.3 (2024-11-05)
 
 #### Bug Fixes

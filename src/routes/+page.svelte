@@ -12,7 +12,7 @@
     StarterKit,
     SvelteCounterExtension,
     SvelteEditableExtension,
-    Placeholder.configure({ placeholder: 'Writwe something...' }),
+    Placeholder.configure({ placeholder: 'Write something...' }),
   ];
 
   let editor = $state() as Readable<Editor>;
@@ -29,7 +29,7 @@
       `,
       editorProps: {
         attributes: {
-          class: 'border-2 border-black rounded-b-md p-3 outline-none',
+          class: 'border-2 border-black rounded-b-md p-3 outline-hidden',
         },
       },
     });
@@ -100,7 +100,7 @@
     {#each menuItems as item (item.name)}
       <button
         type="button"
-        class={cx('hover:bg-black hover:text-white w-7 h-7 rounded', {
+        class={cx('hover:bg-black hover:text-white w-7 h-7 rounded-sm', {
           'bg-black text-white': item.active(),
         })}
         onclick={item.command}

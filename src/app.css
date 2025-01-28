@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 @layer base {
   body {
@@ -8,22 +6,21 @@
   }
 }
 
-.ProseMirror {
-  p {
-    @apply mb-2;
-  }
+.ProseMirror p {
+  @apply mb-2;
+}
 
-  h1,h2 {
-    @apply font-bold;
-  }
+.ProseMirror h1,
+.ProseMirror h2 {
+  @apply font-bold;
+}
 
-  h1 {
-    @apply text-3xl;
-  }
+.ProseMirror h1 {
+  @apply text-3xl;
+}
 
-  h2 {
-    @apply text-2xl;
-  }
+.ProseMirror h2 {
+  @apply text-2xl;
 }
 
 .tiptap p.is-editor-empty:first-child::before {

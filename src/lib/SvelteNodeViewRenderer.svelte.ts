@@ -26,6 +26,7 @@ export interface SvelteNodeViewRendererOptions extends NodeViewRendererOptions {
   update: ((props: RendererUpdateProps) => boolean) | null;
   as?: string;
   attrs?: AttrProps;
+  context?: Map<any, any>;
 }
 
 class SvelteNodeView extends NodeView<Component<NodeViewProps>, Editor, SvelteNodeViewRendererOptions> {
@@ -58,7 +59,7 @@ class SvelteNodeView extends NodeView<Component<NodeViewProps>, Editor, SvelteNo
       this.contentDOMElement.style.whiteSpace = 'inherit';
     }
 
-    const context = new Map();
+    const context = this.options.context || new Map();
     context.set(TIPTAP_NODE_VIEW, {
       onDragStart: this.onDragStart.bind(this),
     });

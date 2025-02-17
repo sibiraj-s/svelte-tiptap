@@ -18,7 +18,7 @@
       `,
       editorProps: {
         attributes: {
-          class: 'border-2 border-black rounded-md p-3 outline-none',
+          class: 'border-2 border-black rounded-md p-3 outline-hidden',
         },
       },
     });
@@ -51,7 +51,7 @@
   <FloatingMenu editor={$editor}>
     <div data-test-id="floating-menu">
       <button
-        class={cx('border border-black rounded px-2 hover:bg-black hover:text-white', {
+        class={cx('border border-black rounded-sm px-2 hover:bg-black hover:text-white', {
           'bg-black text-white': isActive('heading', { level: 1 }),
         })}
         type="button"
@@ -60,7 +60,7 @@
         h1
       </button>
       <button
-        class={cx('border border-black rounded px-2 hover:bg-black hover:text-white', {
+        class={cx('border border-black rounded-sm px-2 hover:bg-black hover:text-white', {
           'bg-black text-white': isActive('bold'),
         })}
         type="button"
@@ -69,7 +69,7 @@
         bold
       </button>
       <button
-        class={cx('border border-black rounded px-2 hover:bg-black hover:text-white', {
+        class={cx('border border-black rounded-sm px-2 hover:bg-black hover:text-white', {
           'bg-black text-white': isActive('italic'),
         })}
         type="button"

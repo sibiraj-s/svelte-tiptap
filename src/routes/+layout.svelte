@@ -2,7 +2,7 @@
   import { base } from '$app/paths';
   import type { Snippet } from 'svelte';
 
-  import '../app.scss';
+  import '../app.css';
 
   interface Props {
     children?: Snippet;

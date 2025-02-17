@@ -18,7 +18,7 @@
       `,
       editorProps: {
         attributes: {
-          class: 'border-2 border-black rounded-md p-3 outline-none',
+          class: 'border-2 border-black rounded-md p-3 outline-hidden',
         },
       },
     });
@@ -46,7 +46,7 @@
     <div data-test-id="bubble-menu" class="flex">
       <button
         class={cx('px-2 bg-black text-white/90 hover:text-white', {
-          '!text-white': isActive('bold'),
+          'text-white!': isActive('bold'),
         })}
         type="button"
         onclick={toggleBold}
@@ -55,7 +55,7 @@
       </button>
       <button
         class={cx('px-2 bg-black text-white/90 hover:text-white', {
-          '!text-white': isActive('italic'),
+          'text-white!': isActive('italic'),
         })}
         type="button"
         onclick={toggleItalic}

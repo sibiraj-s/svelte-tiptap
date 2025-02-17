@@ -25,6 +25,8 @@ jobs:
 
       - run: npm ci
       - run: npm run package
+        env:
+          NODE_ENV: production
 
       - name: Publish to NPM
         run: npm publish --provenance

@@ -3,5 +3,5 @@
     "editor.defaultFormatter": "svelte.svelte-vscode"
   },
   "svelte.enable-ts-plugin": true,
-  "svelte.plugin.svelte.note-new-transformation": false
+  "css.customData": [".vscode/tailwind.json"]
 }

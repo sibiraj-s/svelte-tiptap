@@ -25,7 +25,7 @@
   <div class="mt-4">
     <button
       id="counter-button"
-      class="bg-gray-200 border-black border rounded px-1"
+      class="bg-gray-200 border-black border rounded-sm px-1"
       onclick={handleClick}
       type="button"
     >

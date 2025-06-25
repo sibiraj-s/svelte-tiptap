@@ -33,7 +33,7 @@
 
     editor.registerPlugin(plugin);
 
-    return () => editor.unregisterPlugin(pluginKey);
+    return () => editor?.unregisterPlugin(pluginKey);
   });
 </script>
 

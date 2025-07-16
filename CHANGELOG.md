@@ -13,6 +13,17 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v2.2.0 (2025-07-17)
+
+#### Features
+
+- support `context` in SvelteNodeViewRenderer ([79cfaea](https://github.com/sibiraj-s/svelte-tiptap/commit/79cfaea))
+
+#### Bug Fixes
+
+- check if editor exists before un-registering plugin ([c0b58d8](https://github.com/sibiraj-s/svelte-tiptap/commit/c0b58d8))
+- prefer `SvelteMap` instead of regular javascript `Map` for NodeViewRenderer ([a2df54e](https://github.com/sibiraj-s/svelte-tiptap/commit/a2df54e))
+
 ## v2.1.0 (2024-12-01)
 
 #### Features

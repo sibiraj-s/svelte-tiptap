@@ -5,7 +5,8 @@ env:
 
 on:
   push:
-    branches: master
+    branches:
+      - master
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

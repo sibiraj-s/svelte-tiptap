@@ -22,6 +22,9 @@
   let element: HTMLElement;
 
   onMount(() => {
+    element.style.visibility = 'hidden';
+    element.style.position = 'absolute';
+
     const plugin = BubbleMenuPlugin({
       pluginKey,
       editor,
@@ -33,7 +36,14 @@
 
     editor.registerPlugin(plugin);
 
-    return () => editor?.unregisterPlugin(pluginKey);
+    return () => {
+      editor?.unregisterPlugin(pluginKey);
+      window.requestAnimationFrame(() => {
+        if (element.parentNode) {
+          element.parentNode.removeChild(element);
+        }
+      });
+    };
   });
 </script>
 

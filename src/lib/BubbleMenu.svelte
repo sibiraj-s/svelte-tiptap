@@ -9,7 +9,7 @@
 
   const {
     editor,
-    tippyOptions = {},
+    options = {},
     pluginKey = 'SvelteTiptapBubbleMenu',
     shouldShow = null,
     updateDelay = 250,
@@ -26,7 +26,7 @@
       pluginKey,
       editor,
       element,
-      tippyOptions,
+      options,
       shouldShow,
       updateDelay,
     });

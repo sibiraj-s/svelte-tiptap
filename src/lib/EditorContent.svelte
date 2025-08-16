@@ -21,7 +21,8 @@
       return;
     }
 
-    element.append(...Array.from(editor.options.element.childNodes));
+    // eslint-disable-next-line svelte/no-dom-manipulating
+    element.append(...Array.from(editor.options.element?.childNodes || []));
     editor.setOptions({ element });
 
     editor.contentElement = element;
@@ -36,12 +37,12 @@
 
     editor.contentElement = null;
 
-    if (!editor.options.element.firstChild) {
+    if (!editor.options.element?.firstChild) {
       return;
     }
 
     const newElement = document.createElement('div');
-    newElement.append(...Array.from(editor.options.element.childNodes));
+    newElement.append(...Array.from(editor.options.element?.childNodes || []));
 
     editor.setOptions({
       element: newElement,

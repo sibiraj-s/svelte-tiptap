@@ -9,7 +9,7 @@
 
   const {
     editor,
-    tippyOptions = {},
+    options = {},
     pluginKey = 'SvelteTiptapFloatingMenu',
     shouldShow = null,
     class: className,
@@ -25,7 +25,7 @@
       pluginKey,
       editor,
       element,
-      tippyOptions,
+      options,
       shouldShow,
     });
 

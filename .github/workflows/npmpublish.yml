@@ -30,6 +30,4 @@ jobs:
           NODE_ENV: production
 
       - name: Publish to NPM
-        run: npm publish --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        run: npm publish

@@ -13,6 +13,13 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v3.0.0 (2025-08-16)
+
+#### Breaking Changes
+
+- require tiptap v3 ([85cbe34](https://github.com/sibiraj-s/svelte-tiptap/commit/85cbe34))
+- rename tippyOptions to options in bubble-menu and floating-menu ([85cbe34](https://github.com/sibiraj-s/svelte-tiptap/commit/85cbe34))
+
 ## v2.2.0 (2025-07-17)
 
 #### Features

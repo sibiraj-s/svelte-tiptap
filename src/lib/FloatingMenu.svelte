@@ -37,7 +37,7 @@
     return () => {
       editor?.unregisterPlugin(pluginKey);
       window.requestAnimationFrame(() => {
-        if (element.parentNode) {
+        if (element && element.parentNode) {
           element.parentNode.removeChild(element);
         }
       });

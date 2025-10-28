@@ -13,6 +13,12 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v3.0.1 (2025-10-28)
+
+#### Bug Fixes
+
+- fix TypeError during destruction of BubbleMenu and FloatingMenu components ([ecf5de3](https://github.com/sibiraj-s/svelte-tiptap/commit/ecf5de3))
+
 ## v3.0.0 (2025-08-16)
 
 #### Breaking Changes

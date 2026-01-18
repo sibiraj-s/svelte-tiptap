@@ -12,11 +12,11 @@
   const { as = 'div' as T, children, ...rest }: Props = $props();
 
   const { onDragStart } = getContext<TiptapNodeViewContext>(TIPTAP_NODE_VIEW);
-  let element: HTMLElement;
+  let element: HTMLElement | undefined;
 
   onMount(async () => {
     await tick();
-    element.style.whiteSpace = 'normal';
+    if (element) element.style.whiteSpace = 'normal';
   });
 </script>
 

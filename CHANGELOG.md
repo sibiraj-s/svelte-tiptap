@@ -13,6 +13,23 @@ All notable changes to this project will be documented in this file.
 > - Documentation
 > - Internal
 
+## v3.0.2 (2026-10-02)
+
+#### Bug Fixes
+
+- don't crash if NodeViewWrapper is unmounted immediately ([d21ae3e](https://github.com/sibiraj-s/svelte-tiptap/commit/d21ae3e))
+- don't share the `context` map across node views in SvelteNodeViewRenderer ([dd21754](https://github.com/sibiraj-s/svelte-tiptap/commit/dd21754))
+
+#### Documentation
+
+- document passing external data to node views with `context` ([dd21754](https://github.com/sibiraj-s/svelte-tiptap/commit/dd21754))
+
+#### Internal
+
+- migrate demo and tooling to SvelteKit 3 ([b46a0d8](https://github.com/sibiraj-s/svelte-tiptap/commit/b46a0d8))
+- add regression tests for teardown, bubble menu node views and ownership warnings ([b417667](https://github.com/sibiraj-s/svelte-tiptap/commit/b417667), [a763178](https://github.com/sibiraj-s/svelte-tiptap/commit/a763178), [eada3f7](https://github.com/sibiraj-s/svelte-tiptap/commit/eada3f7))
+- bump dependencies
+
 ## v3.0.1 (2025-10-28)
 
 #### Bug Fixes

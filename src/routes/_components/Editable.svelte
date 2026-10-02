@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { NodeViewWrapper, NodeViewContent } from '$lib';
+  import { NodeViewWrapper, NodeViewContent } from '#lib';
   import cx from 'clsx';
   import type { NodeViewProps } from '@tiptap/core';
 

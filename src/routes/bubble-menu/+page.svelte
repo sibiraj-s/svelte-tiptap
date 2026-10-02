@@ -5,7 +5,7 @@
   import type { Readable } from 'svelte/store';
   import StarterKit from '@tiptap/starter-kit';
   import cx from 'clsx';
-  import { Editor, EditorContent, BubbleMenu, createEditor } from '$lib';
+  import { Editor, EditorContent, BubbleMenu, createEditor } from '#lib';
 
   let editor = $state() as Readable<Editor>;
 
@@ -41,7 +41,7 @@
 
 <h1 class="mb-2 font-bold">Editor with Bubble Menu</h1>
 
-{#if editor}
+{#if $editor}
   <BubbleMenu editor={$editor}>
     <div data-test-id="bubble-menu" class="flex">
       <button

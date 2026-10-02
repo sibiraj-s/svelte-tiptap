@@ -1,7 +1,7 @@
 name: NPM Publish
 
 env:
-  NODE_VERSION: 22
+  NODE_VERSION: 24
 
 on:
   push:
@@ -17,8 +17,8 @@ jobs:
       id-token: write
 
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: ${{env.NODE_VERSION}}
           registry-url: https://registry.npmjs.org/

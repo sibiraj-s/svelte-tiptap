@@ -3,7 +3,7 @@
   import type { Readable } from 'svelte/store';
   import StarterKit from '@tiptap/starter-kit';
   import cx from 'clsx';
-  import { Editor, EditorContent, createEditor } from '$lib';
+  import { Editor, EditorContent, createEditor } from '#lib';
   import Placeholder from '@tiptap/extension-placeholder';
 
   import { SvelteCounterExtension, SvelteEditableExtension } from './_components/SvelteExtension';
@@ -95,7 +95,7 @@
 
 <h1 class="mb-2 font-bold">Editor with Nodeview Renderer</h1>
 
-{#if editor}
+{#if $editor}
   <div class="border-black border-2 border-b-0 rounded-t-md p-2 flex gap-1">
     {#each menuItems as item (item.name)}
       <button

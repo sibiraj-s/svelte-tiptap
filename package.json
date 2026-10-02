@@ -61,8 +61,8 @@
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@floating-ui/dom": "^1.7.4",
-    "@sveltejs/adapter-static": "^3.0.10",
-    "@sveltejs/kit": "^2.48.0",
+    "@sveltejs/adapter-static": "^4.0.0",
+    "@sveltejs/kit": "^3.0.0",
     "@sveltejs/package": "^2.5.4",
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
     "@tailwindcss/postcss": "^4.1.16",

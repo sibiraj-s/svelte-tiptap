@@ -5,7 +5,7 @@
   import type { Readable } from 'svelte/store';
   import StarterKit from '@tiptap/starter-kit';
   import cx from 'clsx';
-  import { Editor, EditorContent, FloatingMenu, createEditor } from '$lib';
+  import { Editor, EditorContent, FloatingMenu, createEditor } from '#lib';
 
   let editor = $state() as Readable<Editor>;
   type Level = 1 | 2 | 3 | 4 | 5 | 6;
@@ -47,7 +47,7 @@
 
 <h1 class="mb-2 font-bold">Editor with Floating Menu</h1>
 
-{#if editor}
+{#if $editor}
   <FloatingMenu editor={$editor}>
     <div data-test-id="floating-menu">
       <button

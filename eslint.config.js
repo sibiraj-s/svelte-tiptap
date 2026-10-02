@@ -4,7 +4,9 @@ import prettier from 'eslint-config-prettier';
 import tsParser from '@typescript-eslint/parser';
 import pluginCypress from 'eslint-plugin-cypress';
 
-import svelteConfig from './svelte.config.js';
+import { loadConfig } from '@sveltejs/load-config';
+
+const svelteConfig = (await loadConfig('./', { traverse: false }))?.config;
 
 /** @type {import("eslint").Linter.Config[]} */
 const config = pegasus.tsConfig(

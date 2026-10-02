@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { NodeViewProps } from '@tiptap/core';
   import cx from 'clsx';
-  import { NodeViewWrapper } from '$lib';
+  import { NodeViewWrapper } from '#lib';
 
   const { node, updateAttributes, selected }: NodeViewProps = $props();
 

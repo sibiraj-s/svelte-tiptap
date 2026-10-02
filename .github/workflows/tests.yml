@@ -1,7 +1,7 @@
 name: Tests
 
 env:
-  NODE_VERSION: 22
+  NODE_VERSION: 24
 
 on:
   push:
@@ -21,10 +21,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Using node v${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{env.NODE_VERSION}}
           cache: npm
@@ -43,10 +43,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Using node v${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: ${{env.NODE_VERSION}}
           cache: npm
@@ -55,7 +55,7 @@ jobs:
         run: npm ci
 
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v7
         with:
           start: npm run dev -- --host=127.0.0.1
           wait-on: 'http://127.0.0.1:3009'

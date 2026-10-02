@@ -224,6 +224,54 @@ One limitation though: That tag must not change during runtime.
 
 Refer: https://www.tiptap.dev/guide/node-views/react/#adding-a-content-editable
 
+### Passing external data
+
+Node views are mounted outside your component tree, so they don't see its context. Pass it explicitly with the `context` option, then read it with `getContext` in the node view. Use `$state` to keep it reactive.
+
+```svelte
+<script lang="ts">
+  import { getAllContexts, onMount, setContext } from 'svelte';
+  import type { Readable } from 'svelte/store';
+  import { createEditor, Editor, EditorContent, SvelteNodeViewRenderer } from 'svelte-tiptap';
+  import StarterKit from '@tiptap/starter-kit';
+  import { Node } from '@tiptap/core';
+
+  import CounterComponent from './Counter.svelte';
+
+  const settings = $state({ readonly: false });
+  setContext('settings', settings);
+
+  // Read during component initialisation, like any other context function
+  const context = getAllContexts();
+
+  let editor = $state() as Readable<Editor>;
+
+  onMount(() => {
+    const SvelteCounterExtension = Node.create({
+      // ...
+      addNodeView() {
+        return SvelteNodeViewRenderer(CounterComponent, { context });
+      },
+    });
+
+    editor = createEditor({ extensions: [StarterKit, SvelteCounterExtension] });
+  });
+</script>
+```
+
+```svelte
+<!-- Counter.svelte -->
+<script lang="ts">
+  import { getContext } from 'svelte';
+
+  const settings = getContext<{ readonly: boolean }>('settings');
+</script>
+
+<NodeViewWrapper>
+  <button disabled={settings.readonly}>...</button>
+</NodeViewWrapper>
+```
+
 ## Contributing
 
 All types of contributions are welcome. See [CONTRIBUTING.md](./.github/CONTRIBUTING.md) to get started.

@@ -60,7 +60,8 @@ class SvelteNodeView extends NodeView<Component<NodeViewProps>, Editor, SvelteNo
       this.contentDOMElement.style.whiteSpace = 'inherit';
     }
 
-    const context = this.options.context || new SvelteMap();
+    // Copy so each node view gets its own drag handler and the caller's map is left untouched
+    const context = new SvelteMap(this.options.context);
     context.set(TIPTAP_NODE_VIEW, {
       onDragStart: this.onDragStart.bind(this),
     });
